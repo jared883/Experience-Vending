@@ -12,30 +12,30 @@
   /* Soft Black / Dark Charcoal for text */
   --foreground: 0 0% 10%;
 
-  /* Muted Gold - Primary Accent */
-  --primary: 48 45% 50%;
-  --primary-foreground: 0 0% 100%;
+  /* Navy - Primary Accent */
+  --primary: 220 45% 25%;
+  --primary-foreground: 210 40% 98%;
 
   /* Beige / Warm Gray - Secondary */
   --secondary: 40 20% 92%;
-  --secondary-foreground: 0 0% 20%;
+  --secondary-foreground: 220 45% 15%;
 
   /* Muted - Subtle backgrounds */
   --muted: 40 20% 88%;
-  --muted-foreground: 0 0% 40%;
+  --muted-foreground: 220 15% 45%;
 
-  /* Accent - Slightly darker gold/bronze */
-  --accent: 45 40% 45%;
-  --accent-foreground: 0 0% 98%;
+  /* Accent - Lighter Navy/Blue */
+  --accent: 220 30% 90%;
+  --accent-foreground: 220 45% 20%;
 
   /* Destructive */
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
 
-  /* Borders - Soft taupe */
-  --border: 40 10% 80%;
-  --input: 40 10% 80%;
-  --ring: 48 45% 50%;
+  /* Borders - Soft Slate */
+  --border: 220 15% 85%;
+  --input: 220 15% 85%;
+  --ring: 220 45% 25%;
 
   --radius: 0.25rem;
   
@@ -57,15 +57,15 @@
 
 /* Custom utilities for that extra polish */
 @layer utilities {
-  .text-gold {
+  .text-navy {
     color: hsl(var(--primary));
   }
   
-  .bg-gold {
+  .bg-navy {
     background-color: hsl(var(--primary));
   }
   
-  .border-gold {
+  .border-navy {
     border-color: hsl(var(--primary));
   }
 
