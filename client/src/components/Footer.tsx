@@ -1,0 +1,63 @@
+import { Link } from "wouter";
+import { Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
+
+export default function Footer() {
+  return (
+    <footer className="bg-foreground text-background py-16">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {/* Brand */}
+          <div className="space-y-4">
+            <h3 className="font-serif text-2xl font-bold text-primary">Experience Vending LLC</h3>
+            <p className="text-background/80 font-light leading-relaxed max-w-xs">
+              Elevating events with vintage-inspired photo booth experiences. Creating timeless memories with a touch of elegance.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h4 className="font-serif text-lg font-semibold text-primary/90">Navigation</h4>
+            <nav className="flex flex-col space-y-2">
+              <Link href="/" className="text-background/70 hover:text-primary transition-colors">Home</Link>
+              <Link href="/experience" className="text-background/70 hover:text-primary transition-colors">The Experience</Link>
+              <Link href="/packages" className="text-background/70 hover:text-primary transition-colors">Packages</Link>
+              <Link href="/book" className="text-background/70 hover:text-primary transition-colors">Book Now</Link>
+            </nav>
+          </div>
+
+          {/* Contact */}
+          <div className="space-y-4">
+            <h4 className="font-serif text-lg font-semibold text-primary/90">Contact Us</h4>
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-background/70">
+                <Mail className="w-4 h-4 text-primary" />
+                <a href="mailto:hello@experiencevending.com" className="hover:text-primary transition-colors">hello@experiencevending.com</a>
+              </div>
+              <div className="flex items-center gap-3 text-background/70">
+                <Phone className="w-4 h-4 text-primary" />
+                <a href="tel:+15551234567" className="hover:text-primary transition-colors">(555) 123-4567</a>
+              </div>
+              <div className="flex items-center gap-3 text-background/70">
+                <MapPin className="w-4 h-4 text-primary" />
+                <span>Serving the Greater Metro Area</span>
+              </div>
+            </div>
+            
+            <div className="flex gap-4 pt-4">
+              <a href="#" className="p-2 rounded-full bg-white/10 hover:bg-primary hover:text-foreground transition-all duration-300">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="#" className="p-2 rounded-full bg-white/10 hover:bg-primary hover:text-foreground transition-all duration-300">
+                <Facebook className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm text-background/40 font-light">
+          © {new Date().getFullYear()} Experience Vending LLC. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  );
+}
