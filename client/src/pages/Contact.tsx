@@ -56,17 +56,23 @@ export default function Contact() {
               <div className="space-y-6">
                 <div>
                   <h3 className="font-serif text-xl font-bold mb-2">Email Us</h3>
-                  <a href="mailto:hello@experiencevending.com" className="text-primary hover:underline text-lg">hello@experiencevending.com</a>
+                  <div className="flex flex-col space-y-1">
+                    <a href="mailto:jared@experiencevending.com" className="text-primary hover:underline text-lg">jared@experiencevending.com</a>
+                    <a href="mailto:kylee@experiencevending.com" className="text-primary hover:underline text-lg">kylee@experiencevending.com</a>
+                  </div>
                 </div>
                 
                 <div>
                   <h3 className="font-serif text-xl font-bold mb-2">Call Us</h3>
-                  <a href="tel:+15551234567" className="text-foreground hover:text-primary transition-colors text-lg">(555) 123-4567</a>
+                  <div className="flex flex-col space-y-1">
+                    <a href="tel:+19403277045" className="text-foreground hover:text-primary transition-colors text-lg">(940) 327-7045</a>
+                    <a href="tel:+18178970460" className="text-foreground hover:text-primary transition-colors text-lg">(817) 897-0460</a>
+                  </div>
                 </div>
 
                 <div>
                   <h3 className="font-serif text-xl font-bold mb-2">Service Area</h3>
-                  <p className="text-muted-foreground">Serving the Greater Metro Area and surrounding counties. Travel fees may apply for events &gt;50 miles from city center.</p>
+                  <p className="text-muted-foreground text-lg">Based in Fort Worth, Texas. Serving the DFW Metroplex and surrounding areas.</p>
                 </div>
               </div>
             </div>

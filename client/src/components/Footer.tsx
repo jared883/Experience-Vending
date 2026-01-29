@@ -29,17 +29,23 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="font-serif text-lg font-semibold text-primary/90">Contact Us</h4>
             <div className="space-y-3">
-              <div className="flex items-center gap-3 text-background/70">
-                <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:hello@experiencevending.com" className="hover:text-primary transition-colors">hello@experiencevending.com</a>
+              <div className="flex items-start gap-3 text-background/70">
+                <Mail className="w-4 h-4 text-primary mt-1" />
+                <div className="flex flex-col">
+                  <a href="mailto:jared@experiencevending.com" className="hover:text-primary transition-colors">jared@experiencevending.com</a>
+                  <a href="mailto:kylee@experiencevending.com" className="hover:text-primary transition-colors">kylee@experiencevending.com</a>
+                </div>
               </div>
-              <div className="flex items-center gap-3 text-background/70">
-                <Phone className="w-4 h-4 text-primary" />
-                <a href="tel:+15551234567" className="hover:text-primary transition-colors">(555) 123-4567</a>
+              <div className="flex items-start gap-3 text-background/70">
+                <Phone className="w-4 h-4 text-primary mt-1" />
+                <div className="flex flex-col">
+                  <a href="tel:+19403277045" className="hover:text-primary transition-colors">(940) 327-7045</a>
+                  <a href="tel:+18178970460" className="hover:text-primary transition-colors">(817) 897-0460</a>
+                </div>
               </div>
               <div className="flex items-center gap-3 text-background/70">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span>Serving the Greater Metro Area</span>
+                <span>Fort Worth, Texas</span>
               </div>
             </div>
             
