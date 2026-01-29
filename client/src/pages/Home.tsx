@@ -6,6 +6,7 @@ import SectionHeader from "@/components/SectionHeader";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import boothInAction from "../assets/images/booth-in-action.png";
+import photoStripHome from "../assets/images/photo-strip-home.jpg";
 
 export default function Home() {
   return (
@@ -78,10 +79,9 @@ export default function Home() {
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-white p-4 rounded-lg shadow-xl hidden md:block rotate-3">
-                 {/* Photo by cottonbro studio on Unsplash - Happy people */}
                 <img 
-                  src="https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?q=80&w=800&auto=format&fit=crop" 
-                  alt="Happy Guests" 
+                  src={photoStripHome}
+                  alt="Photo booth strips" 
                   className="w-full h-full object-cover rounded border border-border"
                 />
               </div>
