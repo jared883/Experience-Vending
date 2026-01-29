@@ -35,7 +35,7 @@ export default function Experience() {
                 <img 
                   src={photoboothMachine}
                   alt="Photoma Mini vintage photo booth" 
-                  className="rounded-lg shadow-2xl w-full object-cover aspect-[4/3]"
+                  className="rounded-lg shadow-2xl w-full object-contain"
                 />
               </motion.div>
               <div className="space-y-6">
