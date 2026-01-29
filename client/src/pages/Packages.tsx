@@ -16,6 +16,7 @@ const packages = [
     features: [
       "2 Hours of Service",
       "Unlimited Print & Digital Photos",
+      "Customizable Photo Options",
       "On-site Attendant",
       "Setup & Teardown"
     ],
@@ -30,8 +31,8 @@ const packages = [
     features: [
       "4 Hours of Service",
       "Unlimited Print & Digital Photos",
+      "Customizable Photo Options",
       "Custom Print Design",
-      "Fun Prop Station",
       "On-site Attendant",
       "Setup & Teardown"
     ],
@@ -46,7 +47,7 @@ const packages = [
     features: [
       "8 Hours of Service",
       "Unlimited Print & Digital Photos",
-      "Luxury Prop Collection",
+      "Customizable Photo Options",
       "Guestbook Service",
       "GLAM Filter (B&W)",
       "Two On-site Attendants",
