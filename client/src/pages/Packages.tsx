@@ -32,7 +32,6 @@ const packages = [
       "4 Hours of Service",
       "Unlimited Print & Digital Photos",
       "Customizable Photo Options",
-      "Custom Print Design",
       "On-site Attendant",
       "Setup & Teardown"
     ],
@@ -49,7 +48,6 @@ const packages = [
       "Unlimited Print & Digital Photos",
       "Customizable Photo Options",
       "Guestbook Service",
-      "GLAM Filter (B&W)",
       "Two On-site Attendants",
       "Priority Support"
     ],
