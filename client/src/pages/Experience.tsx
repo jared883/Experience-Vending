@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SectionHeader from "@/components/SectionHeader";
 import { motion } from "framer-motion";
-import elegantEventImage from "../assets/images/elegant-event.jpg";
+import photoStripsImage from "../assets/images/photo-strips.jpg";
 
 export default function Experience() {
   return (
@@ -61,8 +61,8 @@ export default function Experience() {
                 className="order-1 md:order-2"
               >
                 <img 
-                  src={elegantEventImage}
-                  alt="Elegant black tie wedding event" 
+                  src={photoStripsImage}
+                  alt="Custom photo strips from events" 
                   className="rounded-lg shadow-2xl w-full object-cover aspect-[4/3]"
                 />
               </motion.div>
