@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SectionHeader from "@/components/SectionHeader";
 import { motion } from "framer-motion";
+import elegantEventImage from "../assets/images/elegant-event.jpg";
 
 export default function Experience() {
   return (
@@ -59,10 +60,9 @@ export default function Experience() {
                 transition={{ duration: 0.7 }}
                 className="order-1 md:order-2"
               >
-                {/* Photo by Alexander Dummer on Unsplash */}
                 <img 
-                  src="https://pixabay.com/get/gc91f039595d96362a5ad85bfc101135a78d89ab5bb8fcd962218486f576b30dec134a3aaafaf3fdecdbd7ed864f4480c298bf51cd6192b5b8b97bb1904060082_1280.jpg" 
-                  alt="Studio lighting setup" 
+                  src={elegantEventImage}
+                  alt="Elegant black tie wedding event" 
                   className="rounded-lg shadow-2xl w-full object-cover aspect-[4/3]"
                 />
               </motion.div>
