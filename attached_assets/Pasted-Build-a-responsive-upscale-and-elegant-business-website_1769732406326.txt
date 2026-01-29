@@ -1,0 +1,147 @@
+Build a responsive, upscale, and elegant business website for a vintage photo booth rental company.
+
+Business Details
+
+Business Name: Experience Vending LLC
+
+Location: Dallas–Fort Worth (DFW), Texas
+
+Industry: Vintage Photo Booth Rentals
+
+Target Events: Weddings, birthdays, corporate events, parties, and special occasions
+
+Design & Branding
+
+Theme: Upscale, elegant, and professional with a vintage aesthetic
+
+Color Palette: Neutral tones (ivory, beige, soft black, muted gold, warm gray)
+
+Typography: Classic serif or modern serif fonts that evoke luxury and nostalgia
+
+Overall vibe: Clean, simple, premium, timeless
+
+Photo Booth Details
+
+Booth Offered: Photoma Mini by Apple Industries
+
+Print Options:
+
+Classic 2”x6” photo strips
+
+4”x6” prints
+
+Fully customizable photo frames and color themes for each event
+
+Website Pages & Sections
+
+Home Page
+
+Hero section with elegant headline and call-to-action (“Book Your Event”)
+
+Brief overview of the vintage photo booth experience
+
+High-end, vintage-inspired layout
+
+Packages Page
+Display three booking packages clearly:
+
+Basic Package
+
+2 hours
+
+$750
+
+Advanced Package
+
+4 hours
+
+$999
+
+Premium Event Package
+
+8 hours
+
+$1,950
+
+All packages include:
+
+Transportation
+
+Setup and teardown
+
+On-site booth attendant for entire event
+
+Unlimited photos
+
+Include a note for custom quotes for longer or multi-day events
+
+Booking Page
+
+Clean, simple booking form
+
+Fields:
+
+Name
+
+Email
+
+Phone
+
+Event type
+
+Event date
+
+Selected package
+
+Additional notes
+
+Integrate a calendar view:
+
+Shows available dates
+
+Shows unavailable/booked dates
+
+Prevents booking on unavailable dates
+
+Booking Functionality
+
+Upon successful booking:
+
+Automatically send a confirmation email to:
+
+jared@experiencevending.com
+
+kylee@experiencevending.com
+
+Display a confirmation message to the customer
+
+About / Experience Section
+
+Explain the vintage aesthetic and premium experience
+
+Emphasize reliability, professionalism, and customization
+
+Contact Page
+
+Simple contact form for custom or multi-day event quotes
+
+Technical Requirements
+
+Mobile-friendly and fully responsive
+
+Clean UI with intuitive navigation
+
+Modern frontend framework (React preferred)
+
+Backend support for:
+
+Booking logic
+
+Calendar availability
+
+Email notifications
+
+Code should be clean, readable, and production-ready
+
+Overall Goal
+Create a luxury-feeling, vintage-inspired booking platform that makes it easy for customers to view availability, choose a package, and book an event while maintaining a professional, high-end brand image.
