@@ -109,7 +109,7 @@ export default function Packages() {
                 </div>
 
                 <p className="text-xs text-muted-foreground italic mb-6 text-center">
-                  Photo booth exterior can be customized with vinyl wraps for an additional fee to better suit your event.
+                  Photo booth exterior can be customized with vinyl wraps for an additional fee upon request.
                 </p>
 
                 <Link href={`/book?package=${pkg.id}`}>
