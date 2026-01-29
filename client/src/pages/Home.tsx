@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import boothInAction from "../assets/images/booth-in-action.png";
 import photoStripHome from "../assets/images/photo-strip-home.jpg";
+import Reviews from "@/components/Reviews";
 
 export default function Home() {
   return (
@@ -172,6 +173,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Reviews Section */}
+      <Reviews />
 
       {/* CTA Section */}
       <section className="py-32 bg-foreground text-background relative overflow-hidden">
