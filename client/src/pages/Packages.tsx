@@ -97,7 +97,7 @@ export default function Packages() {
                   <p className="mt-4 text-muted-foreground text-sm leading-relaxed">{pkg.description}</p>
                 </div>
 
-                <div className="flex-grow space-y-4 mb-8">
+                <div className="flex-grow space-y-4 mb-6">
                   {pkg.features.map((feature, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <div className="mt-1 p-0.5 rounded-full bg-primary/10 text-primary">
@@ -107,6 +107,10 @@ export default function Packages() {
                     </div>
                   ))}
                 </div>
+
+                <p className="text-xs text-muted-foreground italic mb-6 text-center">
+                  Photo booth exterior can be customized with vinyl wraps for an additional fee to better suit your event.
+                </p>
 
                 <Link href={`/book?package=${pkg.id}`}>
                   <Button 
