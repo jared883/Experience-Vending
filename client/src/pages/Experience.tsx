@@ -13,7 +13,6 @@ export default function Experience() {
   return (
     <div className="min-h-screen bg-background font-sans">
       <Navigation />
-      
       <div className="pt-32 pb-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center mb-16">
@@ -53,9 +52,8 @@ export default function Experience() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center md:flex-row-reverse">
               <div className="space-y-6 order-2 md:order-1">
                 <h3 className="font-serif text-3xl font-bold">Studio Quality Lighting</h3>
-                <p className="text-muted-foreground text-lg leading-relaxed font-light">
-                  Great photos start with great light. We use professional beauty dishes and flashes to ensure every guest looks radiant. Our proprietary "Glam" filter mimics the high-end look of celebrity portraits—smoothing skin while keeping details sharp (black & white option).
-                </p>
+                <p className="text-muted-foreground text-lg leading-relaxed font-light">Great photos start with great light. We use professional lighting and flashes to ensure every guest looks radiant. Our booth has the option of full color or black & white photos. Guests can choose between classic 2 inch x 6 inch photo strips or 4 inch x 6 inch prints. Photo frames are fully customizable to showcase the event you are celebrating!
+</p>
               </div>
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
@@ -94,7 +92,6 @@ export default function Experience() {
           </div>
         </div>
       </div>
-      
       <Footer />
     </div>
   );
