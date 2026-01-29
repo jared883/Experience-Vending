@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import SectionHeader from "@/components/SectionHeader";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import boothInAction from "../assets/images/booth-in-action.png";
 
 export default function Home() {
   return (
@@ -70,10 +71,9 @@ export default function Home() {
               className="relative"
             >
               <div className="aspect-[4/5] rounded-lg overflow-hidden shadow-2xl">
-                 {/* Photo by Al Elmes on Unsplash - Vintage camera vibe */}
-                <img 
-                  src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop" 
-                  alt="Vintage Camera" 
+                  <img 
+                  src={boothInAction}
+                  alt="Guests enjoying the Photoma Mini photo booth" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
