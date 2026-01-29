@@ -18,8 +18,7 @@ const packages = [
       "Unlimited Digital Photos",
       "Standard Backdrop Choice",
       "On-site Attendant",
-      "Setup & Teardown",
-      "Online Gallery"
+      "Setup & Teardown"
     ],
     highlight: false
   },
@@ -36,8 +35,7 @@ const packages = [
       "Custom Print Design",
       "Fun Prop Station",
       "On-site Attendant",
-      "Setup & Teardown",
-      "Online Gallery"
+      "Setup & Teardown"
     ],
     highlight: true
   },
