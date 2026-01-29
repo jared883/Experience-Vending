@@ -3,10 +3,10 @@ import Footer from "@/components/Footer";
 import SectionHeader from "@/components/SectionHeader";
 import { motion } from "framer-motion";
 import photoStripsImage from "../assets/images/photo-strips.jpg";
-import galleryWedding from "../assets/images/gallery-wedding.jpg";
-import galleryCorporate from "../assets/images/gallery-corporate.jpg";
-import galleryBirthday from "../assets/images/gallery-birthday.jpg";
-import galleryGroup from "../assets/images/gallery-group.jpg";
+import boothStrip from "../assets/images/booth-strip-1.jpg";
+import boothCouple from "../assets/images/booth-couple.jpg";
+import boothFriends from "../assets/images/booth-friends.jpg";
+import boothGroup from "../assets/images/booth-group.jpg";
 
 export default function Experience() {
   return (
@@ -74,19 +74,19 @@ export default function Experience() {
             
             {/* Gallery Grid */}
             <div>
-              <SectionHeader title="Captured Moments" subtitle="Gallery" className="mb-12" />
+              <SectionHeader title="Captured Moments" subtitle="From the Booth" className="mb-12" />
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[600px]">
                 <div className="col-span-2 row-span-2 relative group overflow-hidden rounded-lg">
-                  <img src={galleryWedding} alt="Wedding guests enjoying photo booth" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={boothCouple} alt="Couple posing in photo booth" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="col-span-1 row-span-1 relative group overflow-hidden rounded-lg">
-                  <img src={galleryCorporate} alt="Corporate event attendees" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={boothStrip} alt="Photo booth strip" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="col-span-1 row-span-1 relative group overflow-hidden rounded-lg">
-                  <img src={galleryBirthday} alt="Birthday celebration" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={boothFriends} alt="Friends having fun in photo booth" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="col-span-2 row-span-1 relative group overflow-hidden rounded-lg">
-                  <img src={galleryGroup} alt="Friends posing at gala event" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={boothGroup} alt="Group photo booth moment" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
               </div>
             </div>
