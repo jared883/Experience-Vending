@@ -3,6 +3,10 @@ import Footer from "@/components/Footer";
 import SectionHeader from "@/components/SectionHeader";
 import { motion } from "framer-motion";
 import photoStripsImage from "../assets/images/photo-strips.jpg";
+import galleryWedding from "../assets/images/gallery-wedding.jpg";
+import galleryCorporate from "../assets/images/gallery-corporate.jpg";
+import galleryBirthday from "../assets/images/gallery-birthday.jpg";
+import galleryGroup from "../assets/images/gallery-group.jpg";
 
 export default function Experience() {
   return (
@@ -72,18 +76,17 @@ export default function Experience() {
             <div>
               <SectionHeader title="Captured Moments" subtitle="Gallery" className="mb-12" />
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[600px]">
-                {/* Unsplash collage */}
                 <div className="col-span-2 row-span-2 relative group overflow-hidden rounded-lg">
-                  <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1000" alt="Wedding" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={galleryWedding} alt="Wedding guests enjoying photo booth" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="col-span-1 row-span-1 relative group overflow-hidden rounded-lg">
-                  <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800" alt="Party" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={galleryCorporate} alt="Corporate event attendees" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="col-span-1 row-span-1 relative group overflow-hidden rounded-lg">
-                  <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=800" alt="Toast" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={galleryBirthday} alt="Birthday celebration" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="col-span-2 row-span-1 relative group overflow-hidden rounded-lg">
-                  <img src="https://pixabay.com/get/gce984f3bb7fb6922332c1187649ef8192c8b119c2c77f2df6d7af837ef4d8b91e8c03c0f102f5bec4610681715daadddc49f3715fc509acf01b456829528477d_1280.jpg" alt="Fun" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={galleryGroup} alt="Friends posing at gala event" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
               </div>
             </div>
