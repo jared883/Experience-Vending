@@ -7,6 +7,7 @@ import boothStrip from "../assets/images/booth-strip-1.jpg";
 import boothCouple from "../assets/images/booth-couple.jpg";
 import boothFriends from "../assets/images/booth-friends.jpg";
 import boothGroup from "../assets/images/booth-group.jpg";
+import photoboothMachine from "../assets/images/photobooth-machine.png";
 
 export default function Experience() {
   return (
@@ -31,10 +32,9 @@ export default function Experience() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
               >
-                {/* Photo by Jeremy Wong Weddings on Unsplash */}
                 <img 
-                  src="https://pixabay.com/get/g07d4e756cee71f04544562b9ab33ee6ca5079fec4c0387a573ce4c9673d123994c5ed4674a322be8fc161597fff0f48ca9d7fa95869a7bebaa63cddfccedab74_1280.jpg" 
-                  alt="Couple laughing" 
+                  src={photoboothMachine}
+                  alt="Photoma Mini vintage photo booth" 
                   className="rounded-lg shadow-2xl w-full object-cover aspect-[4/3]"
                 />
               </motion.div>
