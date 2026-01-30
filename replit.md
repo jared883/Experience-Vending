@@ -45,19 +45,21 @@ A responsive, upscale booking website for Experience Vending LLC, a luxury photo
 - Added Google Reviews section to homepage
 - Updated color scheme from gold to navy blue
 
-## Future Enhancements (Pending API Credentials)
+## Notifications
 
-### Email Notifications
-Currently using console.log simulation. To enable real emails:
-1. Obtain Resend API key from https://resend.com
-2. Add as secret: RESEND_API_KEY
-3. Update server/routes.ts to use Resend SDK
+### Email Notifications (ACTIVE)
+Real email notifications are now enabled via Resend. When a booking or inquiry is submitted:
+- Emails are sent to jared@experiencevending.com and kylee@experiencevending.com
+- Beautiful HTML-formatted emails with booking/inquiry details
+- Uses RESEND_API_KEY secret
 
-### SMS Notifications
+Note: Currently using Resend's onboarding domain (onboarding@resend.dev). To send from your own domain, add and verify a custom domain in Resend's dashboard.
+
+### SMS Notifications (Pending)
 To send SMS to (940) 327-7045 and (817) 897-0460 on new bookings:
 1. Obtain Twilio credentials (Account SID, Auth Token, Phone Number)
 2. Add as secrets: TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER
-3. Update server/routes.ts to use Twilio SDK
+3. Backend is ready to be updated with Twilio SDK
 
 ## User Preferences
 - Vintage, elegant aesthetic
