@@ -54,20 +54,6 @@ async function sendBookingNotification(booking: {
   } catch (error) {
     console.error('[EMAIL ERROR] Failed to send booking notification:', error);
   }
-
-  // Send SMS notification via email-to-SMS gateway
-  const smsText = `New Booking!\n${booking.name}\n${booking.eventType}\n${formattedDate}\n${booking.phone}`;
-  try {
-    await resend.emails.send({
-      from: 'Experience Vending <onboarding@resend.dev>',
-      to: ['9403277045@txt.att.net'],
-      subject: 'Booking',
-      text: smsText,
-    });
-    console.log(`[SMS] Booking SMS notification sent successfully`);
-  } catch (error) {
-    console.error('[SMS ERROR] Failed to send booking SMS:', error);
-  }
 }
 
 async function sendInquiryNotification(inquiry: {
@@ -103,20 +89,6 @@ async function sendInquiryNotification(inquiry: {
     console.log(`[EMAIL] Inquiry notification sent successfully`);
   } catch (error) {
     console.error('[EMAIL ERROR] Failed to send inquiry notification:', error);
-  }
-
-  // Send SMS notification via email-to-SMS gateway
-  const smsText = `New Inquiry!\n${inquiry.name}\n${inquiry.email}\n${inquiry.phone || 'No phone'}`;
-  try {
-    await resend.emails.send({
-      from: 'Experience Vending <onboarding@resend.dev>',
-      to: ['9403277045@txt.att.net'],
-      subject: 'Inquiry',
-      text: smsText,
-    });
-    console.log(`[SMS] Inquiry SMS notification sent successfully`);
-  } catch (error) {
-    console.error('[SMS ERROR] Failed to send inquiry SMS:', error);
   }
 }
 
