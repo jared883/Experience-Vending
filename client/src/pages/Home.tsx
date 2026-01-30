@@ -14,14 +14,6 @@ export default function Home() {
     <div className="min-h-screen bg-background font-sans">
       <Navigation />
 
-      {/* Coming Soon Banner */}
-      <div className="bg-primary text-primary-foreground py-4 px-4 text-center font-serif shadow-lg">
-        <div className="container mx-auto flex items-center justify-center gap-3 flex-wrap">
-          <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wider">Coming Soon</span>
-          <span className="text-xl md:text-2xl font-bold">Availability Beginning Summer 2026</span>
-        </div>
-      </div>
-
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
@@ -53,7 +45,15 @@ export default function Home() {
               Experience the Photoma Mini. An upscale, vintage-inspired photo booth experience designed for weddings, galas, and luxury events.
             </p>
             
-            <div className="pt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            {/* Coming Soon Banner */}
+            <div className="pt-6">
+              <div className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-3 rounded-full border border-white/30">
+                <span className="bg-primary px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wider text-primary-foreground">Coming Soon</span>
+                <span className="text-lg md:text-xl font-bold text-white">Availability Beginning Summer 2026</span>
+              </div>
+            </div>
+            
+            <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href="/book">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-serif text-lg px-8 py-6 rounded-full transition-transform hover:-translate-y-1">
                   Book Your Event
