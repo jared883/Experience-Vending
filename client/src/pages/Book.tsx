@@ -43,6 +43,9 @@ export default function Book() {
   const { data: bookings } = useBookings();
   const createBooking = useCreateBooking();
   const [isSuccess, setIsSuccess] = useState(false);
+  
+  // Check if we're before July 1st, 2026 (pre-launch period)
+  const isPreLaunch = new Date() < new Date(2026, 6, 1);
 
   // Derive disabled dates from existing bookings
   const disabledDates = bookings?.map(b => new Date(b.eventDate)) || [];
@@ -212,7 +215,7 @@ export default function Book() {
                                     onSelect={field.onChange}
                                     disabled={[
                                       ...disabledDates, 
-                                      { before: new Date(2026, 6, 1) } // Disable dates before July 1st, 2026
+                                      { before: isPreLaunch ? new Date(2026, 6, 1) : new Date() } // Before July 1st 2026 during pre-launch, otherwise just past dates
                                     ]}
                                     initialFocus
                                   />
@@ -303,7 +306,11 @@ export default function Book() {
               <div className="bg-muted/30 p-8 rounded-xl border border-border">
                 <h3 className="font-serif text-xl font-bold mb-4">Availability</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  <strong className="text-primary">Availability begins July 1st, 2026.</strong> Book now to secure your preferred date for the upcoming season!
+                  {isPreLaunch ? (
+                    <><strong className="text-primary">Availability begins July 1st, 2026.</strong> Book now to secure your preferred date for the upcoming season!</>
+                  ) : (
+                    <>Dates marked in gray on the calendar are already booked. We recommend booking 3-6 months in advance for peak wedding season (May-Oct).</>
+                  )}
                 </p>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-gray-200"></div>

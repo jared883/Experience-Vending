@@ -10,6 +10,8 @@ import photoStripHome from "../assets/images/photo-strip-home.jpg";
 import Reviews from "@/components/Reviews";
 
 export default function Home() {
+  const isPreLaunch = new Date() < new Date(2026, 6, 1); // Before July 1st, 2026
+  
   return (
     <div className="min-h-screen bg-background font-sans">
       <Navigation />
@@ -45,13 +47,15 @@ export default function Home() {
               Experience the Photoma Mini. An upscale, vintage-inspired photo booth experience designed for weddings, galas, and luxury events.
             </p>
             
-            {/* Coming Soon Banner */}
-            <div className="pt-6">
-              <div className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-3 rounded-full border border-white/30">
-                <span className="bg-primary px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wider text-primary-foreground">Coming Soon</span>
-                <span className="text-lg md:text-xl font-bold text-white">Availability Beginning Summer 2026</span>
+            {/* Coming Soon Banner - disappears after June 30th, 2026 */}
+            {isPreLaunch && (
+              <div className="pt-6">
+                <div className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-3 rounded-full border border-white/30">
+                  <span className="bg-primary px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wider text-primary-foreground">Coming Soon</span>
+                  <span className="text-lg md:text-xl font-bold text-white">Availability Beginning Summer 2026</span>
+                </div>
               </div>
-            </div>
+            )}
             
             <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href="/book">
