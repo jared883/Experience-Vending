@@ -212,7 +212,7 @@ export default function Book() {
                                     onSelect={field.onChange}
                                     disabled={[
                                       ...disabledDates, 
-                                      { before: new Date() } // Disable past dates
+                                      { before: new Date(2026, 6, 1) } // Disable dates before July 1st, 2026
                                     ]}
                                     initialFocus
                                   />
@@ -303,7 +303,7 @@ export default function Book() {
               <div className="bg-muted/30 p-8 rounded-xl border border-border">
                 <h3 className="font-serif text-xl font-bold mb-4">Availability</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Dates marked in gray on the calendar are already booked. We recommend booking 3-6 months in advance for peak wedding season (May-Oct).
+                  <strong className="text-primary">Availability begins July 1st, 2026.</strong> Book now to secure your preferred date for the upcoming season!
                 </p>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-3 h-3 rounded-full bg-gray-200"></div>

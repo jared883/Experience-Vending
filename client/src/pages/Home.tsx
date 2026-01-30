@@ -14,6 +14,12 @@ export default function Home() {
     <div className="min-h-screen bg-background font-sans">
       <Navigation />
 
+      {/* Coming Soon Banner */}
+      <div className="bg-primary text-primary-foreground py-3 px-4 text-center font-serif">
+        <span className="text-lg font-medium">Coming Soon!</span>
+        <span className="text-primary-foreground/90 ml-2">Availability beginning in Summer 2026</span>
+      </div>
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
