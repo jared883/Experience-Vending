@@ -43,6 +43,7 @@ export default function Book() {
   const { data: bookings } = useBookings();
   const createBooking = useCreateBooking();
   const [isSuccess, setIsSuccess] = useState(false);
+  const [calendarOpen, setCalendarOpen] = useState(false);
   
   // Check if we're before July 1st, 2026 (pre-launch period)
   const isPreLaunch = new Date() < new Date(2026, 6, 1);
@@ -189,11 +190,12 @@ export default function Book() {
                           render={({ field }) => (
                             <FormItem className="flex flex-col">
                               <FormLabel>Event Date</FormLabel>
-                              <Popover>
+                              <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
                                 <PopoverTrigger asChild>
                                   <FormControl>
                                     <Button
                                       variant={"outline"}
+                                      data-testid="button-date-picker"
                                       className={cn(
                                         "w-full pl-3 text-left font-normal bg-white/50",
                                         !field.value && "text-muted-foreground"
@@ -212,7 +214,10 @@ export default function Book() {
                                   <Calendar
                                     mode="single"
                                     selected={field.value}
-                                    onSelect={field.onChange}
+                                    onSelect={(date) => {
+                                      field.onChange(date);
+                                      setCalendarOpen(false);
+                                    }}
                                     disabled={[
                                       ...disabledDates, 
                                       { before: isPreLaunch ? new Date(2026, 6, 1) : new Date() } // Before July 1st 2026 during pre-launch, otherwise just past dates
