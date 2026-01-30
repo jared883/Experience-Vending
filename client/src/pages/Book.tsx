@@ -169,7 +169,7 @@ export default function Book() {
                                     <SelectValue placeholder="Select event type" />
                                   </SelectTrigger>
                                 </FormControl>
-                                <SelectContent>
+                                <SelectContent className="bg-white dark:bg-slate-900 border shadow-lg">
                                   <SelectItem value="wedding">Wedding</SelectItem>
                                   <SelectItem value="corporate">Corporate Event</SelectItem>
                                   <SelectItem value="birthday">Birthday Party</SelectItem>
@@ -244,7 +244,7 @@ export default function Book() {
                                     <SelectValue placeholder="Select a package" />
                                   </SelectTrigger>
                                 </FormControl>
-                                <SelectContent>
+                                <SelectContent className="bg-white dark:bg-slate-900 border shadow-lg">
                                   <SelectItem value="basic">The Essential ($750)</SelectItem>
                                   <SelectItem value="advanced">The Classic ($999)</SelectItem>
                                   <SelectItem value="premium">The Gala ($1950)</SelectItem>
