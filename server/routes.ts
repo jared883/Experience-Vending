@@ -46,7 +46,7 @@ async function sendBookingNotification(booking: {
   try {
     await resend.emails.send({
       from: 'Experience Vending <bookings@beloiglii.resend.app>',
-      to: ['jared@experiencevending.com', 'kylee@experiencevending.com'],
+      to: ['jared@experiencevending.com'],
       subject: `New Booking: ${booking.eventType} on ${formattedDate}`,
       html: emailHtml,
     });
@@ -82,7 +82,7 @@ async function sendInquiryNotification(inquiry: {
   try {
     await resend.emails.send({
       from: 'Experience Vending <inquiries@beloiglii.resend.app>',
-      to: ['jared@experiencevending.com', 'kylee@experiencevending.com'],
+      to: ['jared@experiencevending.com'],
       subject: `New Inquiry from ${inquiry.name}`,
       html: emailHtml,
     });
