@@ -15,9 +15,11 @@ export default function Home() {
       <Navigation />
 
       {/* Coming Soon Banner */}
-      <div className="bg-primary text-primary-foreground py-3 px-4 text-center font-serif">
-        <span className="text-lg font-medium">Coming Soon!</span>
-        <span className="text-primary-foreground/90 ml-2">Availability beginning in Summer 2026</span>
+      <div className="bg-primary text-primary-foreground py-4 px-4 text-center font-serif shadow-lg">
+        <div className="container mx-auto flex items-center justify-center gap-3 flex-wrap">
+          <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wider">Coming Soon</span>
+          <span className="text-xl md:text-2xl font-bold">Availability Beginning Summer 2026</span>
+        </div>
       </div>
 
       {/* Hero Section */}
