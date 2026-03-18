@@ -4,8 +4,27 @@ import { storage } from "./storage";
 import { api } from "@shared/routes";
 import { z } from "zod";
 import { Resend } from "resend";
+import twilio from "twilio";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+const twilioClient = twilio(
+  process.env.TWILIO_ACCOUNT_SID,
+  process.env.TWILIO_AUTH_TOKEN
+);
+
+async function sendSms(body: string) {
+  try {
+    await twilioClient.messages.create({
+      body,
+      from: process.env.TWILIO_PHONE_NUMBER,
+      to: process.env.TWILIO_TO_PHONE_NUMBER!,
+    });
+    console.log("[SMS] Notification sent successfully");
+  } catch (error) {
+    console.error("[SMS ERROR] Failed to send SMS:", error);
+  }
+}
 
 async function sendBookingNotification(booking: {
   name: string;
@@ -54,6 +73,10 @@ async function sendBookingNotification(booking: {
   } catch (error) {
     console.error('[EMAIL ERROR] Failed to send booking notification:', error);
   }
+
+  await sendSms(
+    `New Booking!\nName: ${booking.name}\nEvent: ${booking.eventType}\nDate: ${formattedDate}\nPackage: ${booking.packageId}\nPhone: ${booking.phone}`
+  );
 }
 
 async function sendInquiryNotification(inquiry: {
@@ -90,6 +113,10 @@ async function sendInquiryNotification(inquiry: {
   } catch (error) {
     console.error('[EMAIL ERROR] Failed to send inquiry notification:', error);
   }
+
+  await sendSms(
+    `New Inquiry!\nName: ${inquiry.name}\nEmail: ${inquiry.email}${inquiry.phone ? `\nPhone: ${inquiry.phone}` : ''}`
+  );
 }
 
 export async function registerRoutes(
