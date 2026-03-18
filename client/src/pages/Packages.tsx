@@ -40,7 +40,7 @@ const packages = [
   {
     id: "premium",
     name: "The Gala",
-    price: "$2,000",
+    price: "$2,500",
     duration: "8 Hours",
     description: "All-day coverage for corporate events and grand celebrations.",
     features: [

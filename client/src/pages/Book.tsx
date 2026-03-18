@@ -250,7 +250,7 @@ export default function Book() {
                                 <SelectContent className="bg-white dark:bg-slate-900 border shadow-lg">
                                   <SelectItem value="basic">The Essential ($1,250)</SelectItem>
                                   <SelectItem value="advanced">The Classic ($1,500)</SelectItem>
-                                  <SelectItem value="premium">The Gala ($2,000)</SelectItem>
+                                  <SelectItem value="premium">The Gala ($2,500)</SelectItem>
                                 </SelectContent>
                               </Select>
                               <FormMessage />
