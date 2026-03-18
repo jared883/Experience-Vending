@@ -13,16 +13,19 @@ const twilioClient = twilio(
   process.env.TWILIO_AUTH_TOKEN
 );
 
+function formatPhone(number: string): string {
+  const cleaned = number.replace(/\s+/g, "");
+  return cleaned.startsWith("+") ? cleaned : `+${cleaned}`;
+}
+
 async function sendSms(body: string) {
   try {
-    await twilioClient.messages.create({
-      body,
-      from: process.env.TWILIO_PHONE_NUMBER,
-      to: process.env.TWILIO_TO_PHONE_NUMBER!,
-    });
-    console.log("[SMS] Notification sent successfully");
-  } catch (error) {
-    console.error("[SMS ERROR] Failed to send SMS:", error);
+    const to = formatPhone(process.env.TWILIO_TO_PHONE_NUMBER!);
+    const from = formatPhone(process.env.TWILIO_PHONE_NUMBER!);
+    const message = await twilioClient.messages.create({ body, from, to });
+    console.log(`[SMS] Sent successfully. SID: ${message.sid} | Status: ${message.status}`);
+  } catch (error: any) {
+    console.error("[SMS ERROR]", error?.message || error);
   }
 }
 
