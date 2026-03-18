@@ -60,8 +60,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm text-background/40 font-light">
-          © {new Date().getFullYear()} Experience Vending LLC. All rights reserved.
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-background/40 font-light">
+          <span>© {new Date().getFullYear()} Experience Vending LLC. All rights reserved.</span>
+          <div className="flex gap-6">
+            <Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-primary transition-colors">Terms & Conditions</Link>
+          </div>
         </div>
       </div>
     </footer>

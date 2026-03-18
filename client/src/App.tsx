@@ -9,6 +9,8 @@ import Packages from "@/pages/Packages";
 import Experience from "@/pages/Experience";
 import Book from "@/pages/Book";
 import Contact from "@/pages/Contact";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import Terms from "@/pages/Terms";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -19,6 +21,8 @@ function Router() {
       <Route path="/experience" component={Experience} />
       <Route path="/book" component={Book} />
       <Route path="/contact" component={Contact} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms" component={Terms} />
       <Route component={NotFound} />
     </Switch>
   );
