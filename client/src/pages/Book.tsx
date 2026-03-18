@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLocation } from "wouter";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -44,6 +44,7 @@ export default function Book() {
   const createBooking = useCreateBooking();
   const [isSuccess, setIsSuccess] = useState(false);
   const [calendarOpen, setCalendarOpen] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   
   // Check if we're before July 1st, 2026 (pre-launch period)
   const isPreLaunch = new Date() < new Date(2026, 6, 1);
@@ -64,8 +65,10 @@ export default function Book() {
   });
 
   const onSubmit = (data: InsertBooking) => {
+    setSubmitError(null);
     createBooking.mutate(data, {
-      onSuccess: () => setIsSuccess(true)
+      onSuccess: () => setIsSuccess(true),
+      onError: (error) => setSubmitError(error.message || "Something went wrong. Please try again."),
     });
   };
 
@@ -274,6 +277,12 @@ export default function Book() {
                           </FormItem>
                         )}
                       />
+
+                      {submitError && (
+                        <div className="bg-red-50 border border-red-200 text-red-800 rounded-lg px-4 py-3 text-sm">
+                          <strong>Submission failed:</strong> {submitError}
+                        </div>
+                      )}
 
                       <Button 
                         type="submit" 
