@@ -248,9 +248,9 @@ export default function Book() {
                                   </SelectTrigger>
                                 </FormControl>
                                 <SelectContent className="bg-white dark:bg-slate-900 border shadow-lg">
-                                  <SelectItem value="basic">The Essential ($750)</SelectItem>
-                                  <SelectItem value="advanced">The Classic ($999)</SelectItem>
-                                  <SelectItem value="premium">The Gala ($1950)</SelectItem>
+                                  <SelectItem value="basic">The Essential ($1,250)</SelectItem>
+                                  <SelectItem value="advanced">The Classic ($1,500)</SelectItem>
+                                  <SelectItem value="premium">The Gala ($2,000)</SelectItem>
                                 </SelectContent>
                               </Select>
                               <FormMessage />

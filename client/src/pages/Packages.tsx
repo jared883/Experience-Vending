@@ -10,11 +10,11 @@ const packages = [
   {
     id: "basic",
     name: "The Essential",
-    price: "$750",
-    duration: "2 Hours",
+    price: "$1,250",
+    duration: "4 Hours",
     description: "Perfect for intimate gatherings and cocktail hours.",
     features: [
-      "2 Hours of Service",
+      "4 Hours of Service",
       "Unlimited Print & Digital Photos",
       "Customizable Photo Options",
       "On-site Attendant",
@@ -25,11 +25,11 @@ const packages = [
   {
     id: "advanced",
     name: "The Classic",
-    price: "$999",
-    duration: "4 Hours",
+    price: "$1,500",
+    duration: "6 Hours",
     description: "Our most popular choice for weddings and parties.",
     features: [
-      "4 Hours of Service",
+      "6 Hours of Service",
       "Unlimited Print & Digital Photos",
       "Customizable Photo Options",
       "On-site Attendant",
@@ -40,7 +40,7 @@ const packages = [
   {
     id: "premium",
     name: "The Gala",
-    price: "$1,950",
+    price: "$2,000",
     duration: "8 Hours",
     description: "All-day coverage for corporate events and grand celebrations.",
     features: [
