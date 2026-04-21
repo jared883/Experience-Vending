@@ -37,11 +37,13 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-4xl mx-auto space-y-6"
           >
-            <span className="text-primary-foreground/90 tracking-[0.3em] text-sm md:text-base uppercase font-medium">
-              Timeless Memories · Vintage Charm
-            </span>
-            <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/20 text-sm text-white/90 font-medium tracking-wide">
-              <span>📍</span> Serving the Dallas-Fort Worth Metroplex
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-primary-foreground/90 tracking-[0.3em] text-sm md:text-base uppercase font-medium">
+                Timeless Memories · Vintage Charm
+              </span>
+              <span className="text-primary-foreground/90 tracking-[0.3em] text-sm md:text-base uppercase font-medium">
+                Servicing DFW and Surrounding Areas
+              </span>
             </div>
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
               Capture the <span className="text-primary italic">Magic</span>
