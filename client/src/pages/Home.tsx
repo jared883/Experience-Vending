@@ -40,6 +40,9 @@ export default function Home() {
             <span className="text-primary-foreground/90 tracking-[0.3em] text-sm md:text-base uppercase font-medium">
               Timeless Memories · Vintage Charm
             </span>
+            <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/20 text-sm text-white/90 font-medium tracking-wide">
+              <span>📍</span> Serving the Dallas-Fort Worth Metroplex
+            </div>
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
               Capture the <span className="text-primary italic">Magic</span>
             </h1>

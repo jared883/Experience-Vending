@@ -45,7 +45,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3 text-background/70">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span>Fort Worth, Texas</span>
+                <span>Dallas-Fort Worth, Texas</span>
               </div>
             </div>
             
