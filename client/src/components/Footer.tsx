@@ -19,9 +19,10 @@ export default function Footer() {
             <h4 className="font-serif text-lg font-semibold text-primary/90">Navigation</h4>
             <nav className="flex flex-col space-y-2">
               <Link href="/" className="text-background/70 hover:text-primary transition-colors">Home</Link>
-              <Link href="/experience" className="text-background/70 hover:text-primary transition-colors">The Experience</Link>
-              <Link href="/packages" className="text-background/70 hover:text-primary transition-colors">Packages</Link>
-              <Link href="/book" className="text-background/70 hover:text-primary transition-colors">Book Now</Link>
+              <Link href="/our-booth" className="text-background/70 hover:text-primary transition-colors">Our Booth</Link>
+              <Link href="/partner" className="text-background/70 hover:text-primary transition-colors">Partner With Us</Link>
+              <Link href="/rentals" className="text-background/70 hover:text-primary transition-colors">Event Rentals</Link>
+              <Link href="/contact" className="text-background/70 hover:text-primary transition-colors">Contact</Link>
             </nav>
           </div>
 

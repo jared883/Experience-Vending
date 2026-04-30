@@ -11,8 +11,9 @@ export default function Navigation() {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/experience", label: "The Experience" },
-    { href: "/packages", label: "Packages" },
+    { href: "/our-booth", label: "Our Booth" },
+    { href: "/partner", label: "Partner With Us" },
+    { href: "/rentals", label: "Rentals" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -51,9 +52,9 @@ export default function Navigation() {
               )}
             </Link>
           ))}
-          <Link href="/book">
+          <Link href="/partner">
             <Button variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground font-serif tracking-wide px-6">
-              Book Now
+              Get a Booth Now!
             </Button>
           </Link>
         </nav>
@@ -90,9 +91,9 @@ export default function Navigation() {
                   {link.label}
                 </Link>
               ))}
-              <Link href="/book" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link href="/partner" onClick={() => setIsMobileMenuOpen(false)}>
                 <Button className="w-full mt-4 bg-primary text-primary-foreground font-serif">
-                  Book Your Event
+                  Get a Booth Now!
                 </Button>
               </Link>
             </nav>
