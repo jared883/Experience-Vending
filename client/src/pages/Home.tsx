@@ -42,7 +42,7 @@ export default function Home() {
               Bring the <span className="text-primary italic">Experience</span><br />to Your Venue
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
-              We place our luxury Photoma Mini photo booth in your business — fully managed, fully serviced. Your guests love it. You earn from it.
+              We place our luxury Photoma Mini photo booth in your business — fully managed, fully serviced. Your guests love it.
             </p>
             <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href="/partner">
