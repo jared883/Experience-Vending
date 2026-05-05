@@ -29,7 +29,7 @@ const reviews = [
 
 export default function Reviews() {
   return (
-    <section className="py-24 bg-secondary/30">
+    <section className="py-24 bg-card border-y border-border/50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-center gap-2 mb-2">
           <SiGoogle className="w-5 h-5 text-primary" />
@@ -49,7 +49,7 @@ export default function Reviews() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white p-8 rounded-lg shadow-soft border border-border relative"
+              className="bg-background p-8 rounded-lg shadow-soft border border-border/50 hover:border-primary/30 transition-colors relative"
               data-testid={`review-card-${review.id}`}
             >
               <Quote className="absolute top-4 right-4 w-8 h-8 text-primary/10" />
