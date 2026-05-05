@@ -5,69 +5,67 @@ import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Reviews from "@/components/Reviews";
-import boothInAction from "@assets/Photo_Booth_Home_Page_1778001708893.png";
+import boothPhoto from "@assets/Photo_Booth_Home_Page_1778001708893.png";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background font-sans">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
+      {/* Full-width Booth Photo — top of page */}
+      <section className="bg-black pt-20">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="w-full"
+        >
           <img
-            src="https://images.unsplash.com/photo-1519750783826-e2420f4d687f?q=80&w=2788&auto=format&fit=crop"
-            alt="Elegant event background"
-            className="w-full h-full object-cover"
+            src={boothPhoto}
+            alt="Our luxury photo booths"
+            className="w-full h-auto block"
           />
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
-        </div>
+        </motion.div>
+      </section>
 
-        <div className="relative z-10 container mx-auto px-4 text-center text-white">
+      {/* Hero Text */}
+      <section className="py-24 bg-background text-center">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-4xl mx-auto space-y-6"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="space-y-6"
           >
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-primary-foreground/90 tracking-[0.3em] text-sm md:text-base uppercase font-medium">
-                Experience Vending LLC
-              </span>
-              <span className="text-primary-foreground/90 tracking-[0.3em] text-sm md:text-base uppercase font-medium">
-                Servicing DFW and Surrounding Areas
-              </span>
+            <div className="flex flex-col items-center gap-1">
+              <span className="text-primary tracking-[0.3em] text-sm uppercase font-medium">Experience Vending LLC</span>
+              <span className="text-muted-foreground tracking-[0.2em] text-sm uppercase">Servicing DFW and Surrounding Areas</span>
             </div>
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
               Bring the <span className="text-primary italic">Experience</span><br />to Your Venue
             </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
               We place one of our luxury photo booths in your business — fully managed, fully serviced. Your guests love it.
             </p>
-            <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href="/partner">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-serif text-lg px-8 py-6 rounded-full transition-transform hover:-translate-y-1">
                   Get a Booth Now!
                 </Button>
               </Link>
               <Link href="/rentals">
-                <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 hover:text-white font-serif text-lg px-8 py-6 rounded-full backdrop-blur-sm">
+                <Button variant="outline" size="lg" className="border-primary/30 text-primary hover:bg-primary/5 font-serif text-lg px-8 py-6 rounded-full">
                   Rent for an Event
                 </Button>
               </Link>
             </div>
           </motion.div>
         </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/50">
-          <span className="text-xs tracking-widest uppercase">Scroll</span>
-          <div className="w-px h-10 bg-white/30 animate-pulse" />
-        </div>
       </section>
 
       {/* How It Works */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-muted/30 border-t border-border/50">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -124,65 +122,49 @@ export default function Home() {
       </section>
 
       {/* About / Booth Section */}
-      <section className="py-24 bg-muted/30 border-y border-border/50">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative"
-            >
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src={boothInAction}
-                  alt="Our luxury photo booth"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6"
-            >
-              <span className="text-primary tracking-[0.2em] text-sm uppercase font-medium">Our Booths</span>
-              <h2 className="font-serif text-4xl md:text-5xl font-bold leading-tight">
-                A Booth That Elevates Any Space
-              </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed font-light">
-                Our photo booths aren't your typical rental. Designed with a modern aesthetic, each unit is as much a piece of decor as it is an experience. They enhance your venue's atmosphere while delighting your guests.
-              </p>
-              <ul className="space-y-3">
-                {[
-                  "Compact footprint — fits in most venues",
-                  "DSLR-quality photos with professional lighting",
-                  "Instant digital sharing & print options",
-                  "Fully managed by our team — zero effort from you",
-                  "Custom branded prints with your venue's logo",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                    <span className="text-foreground/80">{item}</span>
-                  </li>
-                ))}
-              </ul>
+      <section className="py-24 bg-background border-b border-border/50">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            <span className="text-primary tracking-[0.2em] text-sm uppercase font-medium">Our Booths</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold leading-tight">
+              A Booth That Elevates Any Space
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed font-light max-w-2xl mx-auto">
+              Our photo booths aren't your typical rental. Designed with a modern aesthetic, each unit is as much a piece of decor as it is an experience. They enhance your venue's atmosphere while delighting your guests.
+            </p>
+            <ul className="space-y-3 text-left max-w-md mx-auto">
+              {[
+                "Compact footprint — fits in most venues",
+                "DSLR-quality photos with professional lighting",
+                "Instant digital sharing & print options",
+                "Fully managed by our team — zero effort from you",
+                "Custom branded prints with your venue's logo",
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                  <span className="text-foreground/80">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div>
               <Link href="/our-booth">
                 <Button variant="outline" className="border-primary/30 text-primary hover:bg-primary/5 font-serif mt-2">
-                  Learn More About the Booth <ArrowRight size={16} className="ml-2" />
+                  Learn More About Our Booths <ArrowRight size={16} className="ml-2" />
                 </Button>
               </Link>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Who It's For */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-muted/30 border-b border-border/50">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -221,7 +203,7 @@ export default function Home() {
       </section>
 
       {/* Service Area */}
-      <section className="py-16 bg-muted/30 border-y border-border/50">
+      <section className="py-16 bg-background border-b border-border/50">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <MapPin className="w-5 h-5 text-primary" />
