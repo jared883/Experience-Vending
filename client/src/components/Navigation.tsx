@@ -11,7 +11,7 @@ export default function Navigation() {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/our-booth", label: "Our Booth" },
+    { href: "/our-booth", label: "Our Booths" },
     { href: "/partner", label: "Partner With Us" },
     { href: "/rentals", label: "Rentals" },
     { href: "/contact", label: "Contact" },
