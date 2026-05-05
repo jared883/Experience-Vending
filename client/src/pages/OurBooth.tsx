@@ -170,8 +170,7 @@ export default function OurBooth() {
                 label="Remote Monitoring"
                 items={[
                   "Proactive maintenance alerts",
-                  "Unit management",
-                  "Via Back Office portal",
+                  "Unit management via Back Office portal",
                 ]}
               />
               <SpecBlock
@@ -309,8 +308,7 @@ export default function OurBooth() {
                 label="Remote Monitoring"
                 items={[
                   "Proactive maintenance alerts",
-                  "Unit management",
-                  "Via Back Office portal",
+                  "Unit management via Back Office portal",
                 ]}
               />
               <SpecBlock
