@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { Camera, Smartphone, Printer, Palette, Zap, Shield, Users } from "lucide-react";
+import { Camera, Smartphone, Printer, Palette, Zap, Shield, Users, Monitor, Wifi, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -8,6 +8,22 @@ import boothMini from "@assets/Lockwood_Booth_1777999897959.png";
 import boothFull from "@assets/Full_Size_Photoma_Booth_1778000466152.png";
 import strip1 from "@assets/Lockwood_Strip_1_1777999912743.png";
 import strip2 from "@assets/Lockwood_Strip_2_1777999920690.png";
+
+function SpecBlock({ label, items }: { label: string; items: string[] }) {
+  return (
+    <div>
+      <p className="text-xs uppercase tracking-widest font-semibold text-primary mb-2">{label}</p>
+      <ul className="space-y-1">
+        {items.map((item, i) => (
+          <li key={i} className="text-sm text-muted-foreground font-light flex items-start gap-2">
+            <span className="text-primary mt-0.5 shrink-0">·</span>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default function OurBooth() {
   return (
@@ -33,10 +49,12 @@ export default function OurBooth() {
         </div>
       </section>
 
-      {/* Booth 1: Photoma Mini */}
+      {/* ── BOOTH 1: Photoma Mini ── */}
       <section className="py-20 border-t border-border/50">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+          {/* Photo + headline */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -45,11 +63,7 @@ export default function OurBooth() {
               className="relative"
             >
               <div className="rounded-2xl overflow-hidden shadow-2xl bg-black">
-                <img
-                  src={boothMini}
-                  alt="The Photoma Mini photo booth"
-                  className="w-full h-full object-cover"
-                />
+                <img src={boothMini} alt="The Photoma Mini photo booth" className="w-full h-full object-cover" />
               </div>
               <div className="absolute -bottom-6 -right-6 hidden md:flex gap-3">
                 <div className="w-24 bg-white p-2 rounded-lg shadow-xl -rotate-3">
@@ -74,15 +88,16 @@ export default function OurBooth() {
                 <p className="text-muted-foreground text-sm mt-1">by Apple Industries</p>
               </div>
               <p className="text-muted-foreground text-lg font-light leading-relaxed">
-                A self-contained, vintage-inspired photo booth with a compact footprint — ideal for restaurants, bars, retail spaces, and boutique venues. Bold presence without taking over the room.
+                A self-contained photo booth with a compact footprint — ideal for restaurants, bars, retail spaces, and boutique venues. Bold presence without taking over the room. Indoor use.
               </p>
 
+              {/* Highlight features */}
               <div className="grid grid-cols-1 gap-4">
                 {[
-                  { icon: <Camera className="w-5 h-5 text-primary" />, title: "DSLR Quality", desc: "Professional-grade camera with studio ring lighting." },
-                  { icon: <Printer className="w-5 h-5 text-primary" />, title: "Instant Prints", desc: "2\"×6\" strips or 4\"×6\" prints — dye-sublimation quality." },
-                  { icon: <Smartphone className="w-5 h-5 text-primary" />, title: "Digital Sharing", desc: "Text or email photos instantly. No app needed." },
-                  { icon: <Palette className="w-5 h-5 text-primary" />, title: "Custom Branding", desc: "Branded overlays designed to match your venue." },
+                  { icon: <Camera className="w-5 h-5 text-primary" />, title: "Professional Camera", desc: "DSLR-quality optics with studio ring lighting for flawless portraits." },
+                  { icon: <CreditCard className="w-5 h-5 text-primary" />, title: "Cashless Payments", desc: "Tap, swipe, or digital wallet — no cash handling required." },
+                  { icon: <Printer className="w-5 h-5 text-primary" />, title: "Instant Prints", desc: "2\"×6\" strips or 4\"×6\" prints. 700 vends per paper roll." },
+                  { icon: <Smartphone className="w-5 h-5 text-primary" />, title: "Digital Sharing", desc: "Email, Facebook, X, Instagram, and TikTok — all built in." },
                 ].map((f, i) => (
                   <div key={i} className="flex items-start gap-4">
                     <div className="p-2.5 bg-primary/10 rounded-full shrink-0">{f.icon}</div>
@@ -93,45 +108,100 @@ export default function OurBooth() {
                   </div>
                 ))}
               </div>
-
-              {/* Mini Specs */}
-              <div className="pt-2 border-t border-border/50">
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-medium">Dimensions</p>
-                <div className="grid grid-cols-4 gap-3">
-                  {[
-                    { label: "Height", value: "72\"" },
-                    { label: "Width", value: "26\"" },
-                    { label: "Depth", value: "34\"" },
-                    { label: "Weight", value: "~300 lbs" },
-                  ].map((s, i) => (
-                    <div key={i} className="text-center bg-muted/40 rounded-lg p-3 border border-border/40">
-                      <p className="font-serif font-bold text-lg text-foreground">{s.value}</p>
-                      <p className="text-xs text-muted-foreground mt-0.5">{s.label}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mt-3 text-sm text-muted-foreground font-light">
-                  <span>⚡ Standard 110V outlet</span>
-                  <span>📶 WiFi · cloud-connected</span>
-                  <span>🔒 Fully insured</span>
-                </div>
-              </div>
             </motion.div>
           </div>
+
+          {/* Full spec grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-muted/30 border border-border/50 rounded-2xl p-8"
+          >
+            <h3 className="font-serif text-xl font-bold mb-8">Full Specifications — Photoma Mini</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              {[
+                { label: "Length", value: "38\"" },
+                { label: "Width", value: "30\"" },
+                { label: "Height", value: "84\"" },
+                { label: "Weight", value: "600 lbs" },
+              ].map((s, i) => (
+                <div key={i} className="text-center bg-white rounded-xl p-4 border border-border/40 shadow-soft">
+                  <p className="font-serif font-bold text-2xl text-foreground">{s.value}</p>
+                  <p className="text-xs text-muted-foreground mt-1 uppercase tracking-wide">{s.label}</p>
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+              <SpecBlock
+                label="General Features"
+                items={[
+                  "Fully Customizable",
+                  "Indoor Use",
+                  "Touch Screen Navigation",
+                  "Cashless Payments",
+                  "Digital & Print Options",
+                  "Multiple Languages",
+                  "700 Vends Per Roll",
+                ]}
+              />
+              <SpecBlock
+                label="Power Requirements"
+                items={[
+                  "110–240 VAC",
+                  "50/60 Hz",
+                  "7 AMPS",
+                  "800W",
+                ]}
+              />
+              <SpecBlock
+                label="Theme Packages"
+                items={[
+                  "4×6 Photos",
+                  "2×6 Photo Strips",
+                  "Standard",
+                  "Fun Filters",
+                  "Augmented Reality",
+                  "Licensed Content",
+                ]}
+              />
+              <SpecBlock
+                label="Remote Monitoring"
+                items={[
+                  "Earnings information",
+                  "Proactive maintenance alerts",
+                  "Unit management",
+                  "Via Back Office portal",
+                ]}
+              />
+              <SpecBlock
+                label="Social Sharing"
+                items={[
+                  "Email",
+                  "Facebook",
+                  "X (Twitter)",
+                  "Instagram",
+                  "TikTok",
+                  "Via OOBE platform",
+                ]}
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Divider */}
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+      <div className="container mx-auto px-4 md:px-6 max-w-6xl py-4">
         <div className="border-t border-border/50" />
       </div>
 
-      {/* Booth 2: Full Size Photoma */}
+      {/* ── BOOTH 2: Full-Size Photoma Booth ── */}
       <section className="py-20">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-            {/* Text first on desktop for variety */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
+            {/* Text left */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -142,18 +212,18 @@ export default function OurBooth() {
               <div>
                 <span className="text-primary tracking-[0.2em] text-sm uppercase font-medium">Model 02</span>
                 <h2 className="font-serif text-4xl font-bold mt-1">Photoma Booth</h2>
-                <p className="text-muted-foreground text-sm mt-1">Full-Size Model</p>
+                <p className="text-muted-foreground text-sm mt-1">Full-Size Model · Indoor &amp; Outdoor</p>
               </div>
               <p className="text-muted-foreground text-lg font-light leading-relaxed">
-                The full-size Photoma Booth is a walk-in experience that makes a statement. With a spacious interior, curtained enclosure, and large external display, it's built for high-traffic venues and premium events.
+                The full-size Photoma Booth is a walk-in experience that makes a statement. Spacious curtained enclosure, dual displays, and a large-format print dispenser — built for high-traffic venues.
               </p>
 
               <div className="grid grid-cols-1 gap-4">
                 {[
-                  { icon: <Users className="w-5 h-5 text-primary" />, title: "Walk-In Booth", desc: "Curtained enclosure fits groups of 2–4 for a private, fun experience." },
-                  { icon: <Printer className="w-5 h-5 text-primary" />, title: "Instant Prints", desc: "Same dye-sublimation quality with large external print dispenser." },
-                  { icon: <Smartphone className="w-5 h-5 text-primary" />, title: "Social Sharing", desc: "Share directly to Instagram, Facebook, Snapchat, and TikTok." },
-                  { icon: <Zap className="w-5 h-5 text-primary" />, title: "High Capacity", desc: "Designed for high-traffic venues — handles a busy crowd with ease." },
+                  { icon: <Users className="w-5 h-5 text-primary" />, title: "Walk-In Enclosure", desc: "Curtained booth fits groups of 2–4 for a private, fun experience." },
+                  { icon: <Monitor className="w-5 h-5 text-primary" />, title: "Dual Displays", desc: "Internal shooting screen plus external preview monitor for bystanders." },
+                  { icon: <Zap className="w-5 h-5 text-primary" />, title: "Indoor & Outdoor", desc: "Versatile placement — works in covered outdoor venues too." },
+                  { icon: <Wifi className="w-5 h-5 text-primary" />, title: "Cloud Management", desc: "Full remote monitoring of earnings, maintenance alerts, and unit status." },
                 ].map((f, i) => (
                   <div key={i} className="flex items-start gap-4">
                     <div className="p-2.5 bg-primary/10 rounded-full shrink-0">{f.icon}</div>
@@ -164,31 +234,9 @@ export default function OurBooth() {
                   </div>
                 ))}
               </div>
-
-              {/* Full Size Specs */}
-              <div className="pt-2 border-t border-border/50">
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-medium">Dimensions</p>
-                <div className="grid grid-cols-4 gap-3">
-                  {[
-                    { label: "Height", value: "84\"" },
-                    { label: "Width", value: "55\"" },
-                    { label: "Depth", value: "48\"" },
-                    { label: "Weight", value: "~500 lbs" },
-                  ].map((s, i) => (
-                    <div key={i} className="text-center bg-muted/40 rounded-lg p-3 border border-border/40">
-                      <p className="font-serif font-bold text-lg text-foreground">{s.value}</p>
-                      <p className="text-xs text-muted-foreground mt-0.5">{s.label}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mt-3 text-sm text-muted-foreground font-light">
-                  <span>⚡ Standard 110V outlet</span>
-                  <span>📶 WiFi · cloud-connected</span>
-                  <span>🔒 Fully insured</span>
-                </div>
-              </div>
             </motion.div>
 
+            {/* Photo right */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -197,14 +245,89 @@ export default function OurBooth() {
               className="relative lg:order-2"
             >
               <div className="rounded-2xl overflow-hidden shadow-2xl bg-black">
-                <img
-                  src={boothFull}
-                  alt="The full-size Photoma Booth"
-                  className="w-full h-full object-cover"
-                />
+                <img src={boothFull} alt="The full-size Photoma Booth" className="w-full h-full object-cover" />
               </div>
             </motion.div>
           </div>
+
+          {/* Full spec grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-muted/30 border border-border/50 rounded-2xl p-8"
+          >
+            <h3 className="font-serif text-xl font-bold mb-8">Full Specifications — Photoma Booth (Full-Size)</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              {[
+                { label: "Length", value: "70\"" },
+                { label: "Width", value: "32\"" },
+                { label: "Height", value: "84\"" },
+                { label: "Weight", value: "960 lbs*" },
+              ].map((s, i) => (
+                <div key={i} className="text-center bg-white rounded-xl p-4 border border-border/40 shadow-soft">
+                  <p className="font-serif font-bold text-2xl text-foreground">{s.value}</p>
+                  <p className="text-xs text-muted-foreground mt-1 uppercase tracking-wide">{s.label}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-muted-foreground mb-6 -mt-4">* Includes clearance allowance</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+              <SpecBlock
+                label="General Features"
+                items={[
+                  "Fully Customizable",
+                  "Indoor & Outdoor Use",
+                  "Touch Screen Navigation",
+                  "Cashless Payments",
+                  "Digital & Print Options",
+                  "Multiple Languages",
+                  "700 Vends Per Roll",
+                ]}
+              />
+              <SpecBlock
+                label="Power Requirements"
+                items={[
+                  "110–240 VAC",
+                  "50/60 Hz",
+                  "7 AMPS",
+                  "800W",
+                ]}
+              />
+              <SpecBlock
+                label="Theme Packages"
+                items={[
+                  "4×6 Photos",
+                  "2×6 Photo Strips",
+                  "Standard",
+                  "Fun Filters",
+                  "Augmented Reality",
+                  "Licensed Content",
+                ]}
+              />
+              <SpecBlock
+                label="Remote Monitoring"
+                items={[
+                  "Earnings information",
+                  "Proactive maintenance alerts",
+                  "Unit management",
+                  "Via Back Office portal",
+                ]}
+              />
+              <SpecBlock
+                label="Social Sharing"
+                items={[
+                  "Email",
+                  "Facebook",
+                  "X (Twitter)",
+                  "Instagram",
+                  "TikTok",
+                  "Via OOBE platform",
+                ]}
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
 
