@@ -19,58 +19,61 @@ export default function Navigation() {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-border/50">
-      <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
+    <header className="fixed top-0 w-full z-50 bg-background/96 backdrop-blur-md border-b border-border/40">
+      <div className="container mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link href="/" className="flex items-center gap-3.5 group">
           <img
             src={logo}
             alt="Experience Vending Logo"
-            className="w-11 h-11 rounded-full object-cover ring-1 ring-primary/30 group-hover:ring-primary/60 transition-all duration-300"
+            className="w-10 h-10 rounded-full object-cover ring-1 ring-primary/25 group-hover:ring-primary/50 transition-all duration-500"
           />
-          <div className="flex flex-col">
-            <span className="font-serif text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-300">
+          <div className="flex flex-col leading-none">
+            <span className="font-serif text-[1.15rem] font-semibold tracking-wide text-foreground group-hover:text-primary transition-colors duration-400">
               Experience Vending
             </span>
-            <span className="text-[0.6rem] tracking-[0.22em] text-primary/70 uppercase">
+            <span className="text-[0.55rem] tracking-[0.28em] text-primary/55 uppercase mt-0.5 font-light">
               Luxury Photo Booths
             </span>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-9">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm font-medium tracking-wide transition-all hover:text-primary relative py-1",
-                location === link.href ? "text-primary font-semibold" : "text-foreground/70"
+                "text-[0.8rem] tracking-[0.1em] uppercase font-light transition-all duration-300 relative py-1",
+                location === link.href
+                  ? "text-primary"
+                  : "text-foreground/55 hover:text-foreground/90"
               )}
             >
               {link.label}
               {location === link.href && (
                 <motion.div
-                  layoutId="underline"
-                  className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"
+                  layoutId="nav-underline"
+                  className="absolute -bottom-0.5 left-0 w-full h-px bg-primary/60"
                 />
               )}
             </Link>
           ))}
+
           <Link href="/partner">
-            <Button variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground font-serif tracking-wide px-6">
-              Get a Booth Now!
-            </Button>
+            <button className="relative text-[0.75rem] tracking-[0.18em] uppercase font-light px-6 py-2.5 text-primary border border-primary/35 hover:border-primary/70 hover:bg-primary/5 transition-all duration-400 rounded-none">
+              Get a Booth
+            </button>
           </Link>
         </nav>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile Toggle */}
         <button
-          className="md:hidden p-2 text-foreground"
+          className="md:hidden p-2 text-foreground/70"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
@@ -81,26 +84,26 @@ export default function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border/50 overflow-hidden"
+            className="md:hidden bg-background border-b border-border/40 overflow-hidden"
           >
-            <nav className="flex flex-col p-6 space-y-4">
+            <nav className="flex flex-col p-8 space-y-5">
               {links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
-                    "text-lg font-serif font-medium",
-                    location === link.href ? "text-primary" : "text-foreground/80"
+                    "text-sm tracking-[0.12em] uppercase font-light",
+                    location === link.href ? "text-primary" : "text-foreground/60"
                   )}
                 >
                   {link.label}
                 </Link>
               ))}
               <Link href="/partner" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="w-full mt-4 bg-primary text-primary-foreground font-serif">
-                  Get a Booth Now!
-                </Button>
+                <button className="mt-4 w-full text-sm tracking-[0.15em] uppercase font-light py-3 text-primary border border-primary/35">
+                  Get a Booth
+                </button>
               </Link>
             </nav>
           </motion.div>

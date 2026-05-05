@@ -1,53 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* === Deep Black & Gold — Luxury Theme === */
+  /* === Deep Black & Antique Gold — Luxury Palette === */
 
-  /* Near-black main background */
-  --background: 0 0% 6%;
-  /* Warm cream — main text */
-  --foreground: 40 25% 90%;
+  /* Very slightly warm deep black */
+  --background: 24 6% 5%;
+  /* Warm ivory — like aged parchment */
+  --foreground: 38 30% 91%;
 
-  /* Cards — slightly lighter dark surface */
-  --card: 0 0% 11%;
-  --card-foreground: 40 25% 90%;
+  /* Cards — slightly lighter warm dark */
+  --card: 24 5% 10%;
+  --card-foreground: 38 30% 91%;
 
   /* Popover */
-  --popover: 0 0% 11%;
-  --popover-foreground: 40 25% 90%;
+  --popover: 24 5% 10%;
+  --popover-foreground: 38 30% 91%;
 
-  /* Warm Gold — Primary Accent */
-  --primary: 42 70% 52%;
-  --primary-foreground: 0 0% 5%;
+  /* Antique Gold — richer, deeper, more precious */
+  --primary: 40 62% 48%;
+  --primary-foreground: 24 6% 5%;
 
-  /* Dark charcoal — Secondary */
-  --secondary: 0 0% 16%;
-  --secondary-foreground: 40 25% 90%;
+  /* Dark warm charcoal — Secondary */
+  --secondary: 24 4% 15%;
+  --secondary-foreground: 38 30% 91%;
 
-  /* Muted dark */
-  --muted: 0 0% 14%;
-  --muted-foreground: 40 12% 55%;
+  /* Muted warm dark */
+  --muted: 24 4% 13%;
+  --muted-foreground: 38 12% 52%;
 
-  /* Gold-tinted dark surface */
-  --accent: 42 35% 14%;
-  --accent-foreground: 42 70% 52%;
+  /* Gold-tinted surface */
+  --accent: 40 30% 13%;
+  --accent-foreground: 40 62% 48%;
 
   /* Destructive */
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
 
-  /* Borders — subtle gold-tinted dark */
-  --border: 42 20% 20%;
-  --input: 0 0% 16%;
-  --ring: 42 70% 52%;
+  /* Borders — warm gold-tinted hairline */
+  --border: 38 22% 17%;
+  --input: 24 4% 14%;
+  --ring: 40 62% 48%;
 
-  --radius: 0.25rem;
+  --radius: 0.125rem;
 
   --font-serif: 'Playfair Display', serif;
+  --font-display: 'Cormorant Garamond', serif;
   --font-sans: 'Lato', sans-serif;
 }
 
@@ -59,28 +60,67 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
-    @apply tracking-tight font-medium;
+    @apply tracking-tight;
   }
 }
 
 @layer utilities {
-  .text-gold {
-    color: hsl(var(--primary));
-  }
-
-  .bg-gold {
-    background-color: hsl(var(--primary));
-  }
-
+  /* ── Shadows ── */
   .shadow-soft {
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.7);
   }
 
   .shadow-gold {
-    box-shadow: 0 0 40px -8px rgba(201, 168, 76, 0.18);
+    box-shadow: 0 0 50px -10px rgba(196, 160, 70, 0.15);
   }
 
+  .shadow-gold-sm {
+    box-shadow: 0 0 20px -6px rgba(196, 160, 70, 0.2);
+  }
+
+  /* ── Gold text gradient — feels like real metal ── */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, hsl(38 50% 60%), hsl(40 70% 52%), hsl(36 55% 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Ornament divider: thin fading lines + diamond ── */
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 14rem;
+  }
+
+  .ornament::before,
+  .ornament::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, hsl(40 62% 48% / 0.4));
+  }
+
+  .ornament::after {
+    background: linear-gradient(to left, transparent, hsl(40 62% 48% / 0.4));
+  }
+
+  /* ── Glass card ── */
   .glass-card {
     @apply bg-card/80 backdrop-blur-md border border-primary/10 shadow-soft;
+  }
+
+  /* ── Luxury section label ── */
+  .label-luxury {
+    @apply text-primary tracking-[0.35em] text-xs uppercase font-light;
+    font-family: var(--font-sans);
+    letter-spacing: 0.35em;
+  }
+
+  /* ── Display font class ── */
+  .font-display {
+    font-family: var(--font-display);
   }
 }

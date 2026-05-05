@@ -15,34 +15,39 @@ export default function SectionHeader({ title, subtitle, align = "center", class
   };
 
   return (
-    <div className={`flex flex-col gap-3 mb-12 ${alignment[align]} ${className}`}>
+    <div className={`flex flex-col gap-4 ${alignment[align]} ${className}`}>
       {subtitle && (
-        <motion.span 
-          initial={{ opacity: 0, y: 10 }}
+        <motion.span
+          initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-primary font-medium tracking-widest text-xs uppercase"
+          className="label-luxury"
         >
           {subtitle}
         </motion.span>
       )}
-      <motion.h2 
-        initial={{ opacity: 0, y: 15 }}
+
+      <motion.h2
+        initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="font-serif text-4xl md:text-5xl font-bold text-foreground"
+        transition={{ duration: 0.55, delay: 0.08 }}
+        className="font-serif text-4xl md:text-5xl font-semibold text-foreground leading-tight"
       >
         {title}
       </motion.h2>
-      <motion.div 
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
+
+      {/* Elegant ornament */}
+      <motion.div
+        initial={{ opacity: 0, scaleX: 0 }}
+        whileInView={{ opacity: 1, scaleX: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.7, delay: 0.2 }}
-        className="w-24 h-1 bg-primary/60 mt-2 rounded-full"
-      />
+        transition={{ duration: 0.7, delay: 0.18 }}
+        className="ornament mt-1"
+      >
+        <span className="text-primary/50 text-[10px]">◆</span>
+      </motion.div>
     </div>
   );
 }

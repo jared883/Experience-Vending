@@ -1,11 +1,20 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, MapPin, TrendingUp, Users, Zap, Star, CheckCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Reviews from "@/components/Reviews";
 import boothPhoto from "@assets/Photo_Booth_Home_Page_1778001708893.png";
+
+function Ornament() {
+  return (
+    <div className="flex items-center gap-3 w-fit mx-auto my-2">
+      <div className="w-16 h-px bg-gradient-to-r from-transparent to-primary/40" />
+      <span className="text-primary/50 text-[9px]">◆</span>
+      <div className="w-16 h-px bg-gradient-to-l from-transparent to-primary/40" />
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -17,7 +26,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
           className="w-full"
         >
           <img
@@ -29,74 +38,88 @@ export default function Home() {
       </section>
 
       {/* Hero Text */}
-      <section className="py-24 bg-background text-center">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+      <section className="py-28 md:py-36 bg-background text-center">
+        <div className="container mx-auto px-6 md:px-8 max-w-3xl">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="space-y-6"
+            transition={{ duration: 0.8 }}
+            className="space-y-7"
           >
-            <div className="flex flex-col items-center gap-1">
-              <span className="text-primary tracking-[0.3em] text-sm uppercase font-medium">Experience Vending LLC</span>
-              <span className="text-foreground/40 tracking-[0.2em] text-sm uppercase">Servicing DFW and Surrounding Areas</span>
+            <div className="flex flex-col items-center gap-2">
+              <span className="label-luxury">Experience Vending LLC</span>
+              <span className="text-foreground/30 tracking-[0.22em] text-[0.65rem] uppercase font-light">
+                Servicing DFW and Surrounding Areas
+              </span>
             </div>
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
-              Bring the <span className="text-primary italic">Experience</span><br />to Your Venue
+
+            <Ornament />
+
+            <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-light leading-[1.08] italic tracking-tight">
+              Bring the <span className="text-gold-gradient not-italic font-normal">Experience</span><br />
+              <span className="not-italic font-semibold font-serif text-5xl md:text-6xl lg:text-7xl tracking-tight">to Your Venue</span>
             </h1>
-            <p className="text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto font-light leading-relaxed">
+
+            <p className="text-base md:text-lg text-foreground/50 max-w-xl mx-auto font-light leading-relaxed tracking-wide">
               We place one of our luxury photo booths in your business — fully managed, fully serviced. Your guests love it.
             </p>
-            <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
+
+            <Ornament />
+
+            <div className="pt-4 flex flex-col sm:flex-row gap-5 justify-center items-center">
               <Link href="/partner">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-serif text-lg px-8 py-6 rounded-full transition-transform hover:-translate-y-1">
-                  Get a Booth Now!
-                </Button>
+                <button className="text-[0.75rem] tracking-[0.2em] uppercase font-light px-10 py-4 bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-400 shadow-gold-sm hover:shadow-gold">
+                  Get a Booth Now
+                </button>
               </Link>
               <Link href="/rentals">
-                <Button variant="outline" size="lg" className="border-primary/40 text-primary hover:bg-primary/10 font-serif text-lg px-8 py-6 rounded-full">
+                <button className="text-[0.75rem] tracking-[0.2em] uppercase font-light px-10 py-4 border border-primary/30 text-primary hover:border-primary/60 hover:bg-primary/5 transition-all duration-400">
                   Rent for an Event
-                </Button>
+                </button>
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
+      {/* Thin divider */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
       {/* How It Works */}
-      <section className="py-24 bg-card border-t border-border/50">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="py-28 bg-card">
+        <div className="container mx-auto px-6 md:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <span className="text-primary tracking-[0.2em] text-sm uppercase font-medium">Simple Process</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mt-2">How It Works</h2>
+            <span className="label-luxury">Simple Process</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-semibold mt-4">How It Works</h2>
+            <Ornament />
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
               {
-                step: "01",
+                step: "I",
                 title: "Apply to Partner",
                 desc: "Tell us about your venue. We'll review your space and reach out within 24 hours to discuss placement details.",
-                icon: <Users className="w-7 h-7 text-primary" />
+                icon: <Users className="w-5 h-5 text-primary" />
               },
               {
-                step: "02",
+                step: "II",
                 title: "We Handle Everything",
                 desc: "We install, maintain, and service the booth. Zero effort on your end — we manage supplies, repairs, and updates.",
-                icon: <Zap className="w-7 h-7 text-primary" />
+                icon: <Zap className="w-5 h-5 text-primary" />
               },
               {
-                step: "03",
+                step: "III",
                 title: "Your Guests Enjoy It",
                 desc: "Guests pay per session or per print. Your venue becomes a destination. Everyone goes home with a memory.",
-                icon: <Star className="w-7 h-7 text-primary" />
+                icon: <Star className="w-5 h-5 text-primary" />
               }
             ].map((item, idx) => (
               <motion.div
@@ -104,41 +127,44 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.15 }}
-                className="relative bg-background border border-border/50 rounded-2xl p-8 shadow-soft hover:border-primary/40 transition-colors"
+                transition={{ duration: 0.55, delay: idx * 0.15 }}
+                className="relative bg-background border border-border/50 p-10 hover:border-primary/30 hover:shadow-gold-sm transition-all duration-500 group"
               >
-                <div className="absolute -top-4 left-8 bg-primary text-primary-foreground font-serif font-bold text-sm px-3 py-1 rounded-full">
-                  {item.step}
+                <div className="absolute -top-3 left-10">
+                  <span className="font-display italic text-xs text-primary/60 tracking-widest">{item.step}</span>
                 </div>
-                <div className="mb-4 p-3 bg-primary/10 w-fit rounded-full">
+                <div className="mb-6 p-2.5 bg-primary/8 w-fit border border-primary/15">
                   {item.icon}
                 </div>
-                <h3 className="font-serif text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-muted-foreground font-light leading-relaxed">{item.desc}</p>
+                <h3 className="font-serif text-lg font-semibold mb-3 tracking-wide">{item.title}</h3>
+                <p className="text-foreground/50 font-light leading-relaxed text-sm">{item.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
       {/* About / Booth Section */}
-      <section className="py-24 bg-background border-b border-border/50">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">
+      <section className="py-28 bg-background">
+        <div className="container mx-auto px-6 md:px-8 max-w-3xl text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="space-y-7"
           >
-            <span className="text-primary tracking-[0.2em] text-sm uppercase font-medium">Our Booths</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold leading-tight">
+            <span className="label-luxury">Our Booths</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-semibold leading-tight">
               A Booth That Elevates Any Space
             </h2>
-            <p className="text-foreground/60 text-lg leading-relaxed font-light max-w-2xl mx-auto">
-              Our photo booths aren't your typical rental. Designed with a modern aesthetic, each unit is as much a piece of decor as it is an experience. They enhance your venue's atmosphere while delighting your guests.
+            <Ornament />
+            <p className="text-foreground/50 text-base leading-relaxed font-light max-w-xl mx-auto tracking-wide">
+              Our photo booths aren't your typical rental. Designed with a modern aesthetic, each unit is as much a piece of decor as it is an experience.
             </p>
-            <ul className="space-y-3 text-left max-w-md mx-auto">
+            <ul className="space-y-4 text-left max-w-sm mx-auto pt-2">
               {[
                 "Compact footprint — fits in most venues",
                 "DSLR-quality photos with professional lighting",
@@ -146,35 +172,38 @@ export default function Home() {
                 "Fully managed by our team — zero effort from you",
                 "Custom branded prints with your venue's logo",
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                  <span className="text-foreground/70">{item}</span>
+                <li key={i} className="flex items-start gap-3.5">
+                  <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0 opacity-80" />
+                  <span className="text-foreground/65 text-sm font-light tracking-wide">{item}</span>
                 </li>
               ))}
             </ul>
-            <div>
+            <div className="pt-3">
               <Link href="/our-booth">
-                <Button variant="outline" className="border-primary/40 text-primary hover:bg-primary/10 font-serif mt-2">
-                  Learn More About Our Booths <ArrowRight size={16} className="ml-2" />
-                </Button>
+                <button className="inline-flex items-center gap-2 text-[0.72rem] tracking-[0.18em] uppercase font-light px-7 py-3 border border-primary/30 text-primary hover:border-primary/60 hover:bg-primary/5 transition-all duration-400">
+                  Explore Our Booths <ArrowRight size={13} />
+                </button>
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
       {/* Who It's For */}
-      <section className="py-24 bg-card border-b border-border/50">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="py-28 bg-card">
+        <div className="container mx-auto px-6 md:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <span className="text-primary tracking-[0.2em] text-sm uppercase font-medium">Ideal Venues</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mt-2">Perfect For</h2>
+            <span className="label-luxury">Ideal Venues</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-semibold mt-4">Perfect For</h2>
+            <Ornament />
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
@@ -188,57 +217,65 @@ export default function Home() {
             ].map((venue, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.07 }}
-                className="bg-background border border-border/50 rounded-xl p-6 text-center hover:border-primary/50 hover:shadow-gold transition-all cursor-default"
+                className="bg-background border border-border/40 p-6 text-center hover:border-primary/35 hover:shadow-gold-sm transition-all duration-500 cursor-default group"
               >
-                <div className="text-3xl mb-3">{venue.icon}</div>
-                <p className="text-sm font-medium text-foreground/70 leading-tight">{venue.label}</p>
+                <div className="text-2xl mb-3 opacity-80 group-hover:opacity-100 transition-opacity">{venue.icon}</div>
+                <p className="text-[0.72rem] font-light text-foreground/60 leading-snug tracking-wide uppercase">{venue.label}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
       {/* Service Area */}
-      <section className="py-16 bg-background border-b border-border/50">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <MapPin className="w-5 h-5 text-primary" />
-            <span className="text-primary tracking-[0.2em] text-sm uppercase font-medium">Service Area</span>
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-6 md:px-8 text-center">
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <MapPin className="w-4 h-4 text-primary/70" />
+            <span className="label-luxury">Service Area</span>
           </div>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">Proudly Serving the DFW Metroplex</h2>
-          <p className="text-foreground/60 text-lg max-w-2xl mx-auto font-light">
+          <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-5">Proudly Serving the DFW Metroplex</h2>
+          <p className="text-foreground/50 text-base max-w-xl mx-auto font-light leading-relaxed tracking-wide">
             Based in Fort Worth, Texas. We currently place booths throughout Dallas, Fort Worth, Arlington, Frisco, Plano, and surrounding communities.
           </p>
         </div>
       </section>
 
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
       {/* Reviews */}
       <Reviews />
 
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
       {/* CTA */}
-      <section className="py-32 bg-card relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <TrendingUp className="w-12 h-12 text-primary mx-auto mb-6" />
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 text-primary">Ready to Add a New Experience?</h2>
-          <p className="text-xl text-foreground/60 max-w-2xl mx-auto mb-10 font-light">
-            Join venues across DFW that are giving their guests something to talk about. Apply today and we'll reach out within 24 hours.
+      <section className="py-36 bg-card relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/4 via-transparent to-transparent pointer-events-none" />
+        <div className="container mx-auto px-6 text-center relative z-10 max-w-2xl">
+          <span className="label-luxury">Ready to Begin?</span>
+          <h2 className="font-serif text-4xl md:text-5xl font-semibold mt-5 mb-4">
+            Add a New <span className="text-gold-gradient">Experience</span>
+          </h2>
+          <Ornament />
+          <p className="text-base text-foreground/50 mx-auto mt-6 mb-12 font-light leading-relaxed tracking-wide">
+            Join venues across DFW that are giving their guests something to talk about. Apply today — we'll be in touch within 24 hours.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link href="/partner">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-serif text-lg px-10 py-8 rounded-full shadow-gold transition-all">
-                Get a Booth Now!
-              </Button>
+              <button className="text-[0.75rem] tracking-[0.2em] uppercase font-light px-12 py-4 bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-400 shadow-gold hover:shadow-gold">
+                Get a Booth Now
+              </button>
             </Link>
             <Link href="/contact">
-              <Button size="lg" variant="outline" className="border-primary/30 text-primary hover:bg-primary/10 font-serif text-lg px-10 py-8 rounded-full">
+              <button className="text-[0.75rem] tracking-[0.2em] uppercase font-light px-12 py-4 border border-primary/30 text-primary hover:border-primary/60 hover:bg-primary/5 transition-all duration-400">
                 Ask a Question
-              </Button>
+              </button>
             </Link>
           </div>
         </div>
