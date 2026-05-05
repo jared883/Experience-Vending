@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Reviews from "@/components/Reviews";
-import boothInAction from "../assets/images/booth-in-action.png";
+import boothInAction from "@assets/Photo_Booth_Home_Page_1778001708893.png";
 
 export default function Home() {
   return (
