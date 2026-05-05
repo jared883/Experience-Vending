@@ -42,7 +42,7 @@ export default function Home() {
               Bring the <span className="text-primary italic">Experience</span><br />to Your Venue
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
-              We place our luxury Photoma Mini photo booth in your business — fully managed, fully serviced. Your guests love it.
+              We place one of our luxury photo booths in your business — fully managed, fully serviced. Your guests love it.
             </p>
             <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href="/partner">
@@ -137,7 +137,7 @@ export default function Home() {
               <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src={boothInAction}
-                  alt="The Photoma Mini photo booth"
+                  alt="Our luxury photo booth"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -150,12 +150,12 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-6"
             >
-              <span className="text-primary tracking-[0.2em] text-sm uppercase font-medium">The Photoma Mini</span>
+              <span className="text-primary tracking-[0.2em] text-sm uppercase font-medium">Our Booths</span>
               <h2 className="font-serif text-4xl md:text-5xl font-bold leading-tight">
                 A Booth That Elevates Any Space
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed font-light">
-                The Photoma Mini isn't your typical photo booth. Crafted from oak and brass with mid-century modern design, it's as much a piece of decor as it is an experience. It enhances your venue's atmosphere while delighting your guests.
+                Our photo booths aren't your typical rental. Designed with a modern aesthetic, each unit is as much a piece of decor as it is an experience. They enhance your venue's atmosphere while delighting your guests.
               </p>
               <ul className="space-y-3">
                 {[
