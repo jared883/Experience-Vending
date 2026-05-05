@@ -112,7 +112,7 @@ export default function Partner() {
               Get a Booth <span className="text-primary italic">Now!</span>
             </h1>
             <p className="text-background/70 text-lg font-light leading-relaxed">
-              We place our luxury Photoma Mini in your venue at no cost to you. We handle everything — you simply enjoy the added experience your guests love.
+              We place one of our luxury booths in your venue at no cost to you. We handle everything — you simply enjoy the added experience your guests love.
             </p>
           </motion.div>
         </div>
