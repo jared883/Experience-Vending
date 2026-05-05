@@ -162,7 +162,7 @@ export default function Home() {
             </h2>
             <Ornament />
             <p className="text-foreground/50 text-base leading-relaxed font-light max-w-xl mx-auto tracking-wide">
-              Our photo booths aren't your typical rental. Designed with a modern aesthetic, each unit is as much a piece of decor as it is an experience.
+              Our Photo Booths are the luxury amenity your venue &amp; guests want. Designed with a modern aesthetic, each unit is as much a piece of decor as it is an experience.
             </p>
             <ul className="space-y-4 text-left max-w-sm mx-auto pt-2">
               {[
