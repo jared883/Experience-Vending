@@ -5,40 +5,48 @@
 @tailwind utilities;
 
 :root {
-  /* HSL Color Palette - Vintage/Upscale */
-  
-  /* Ivory / Off-White Background */
-  --background: 60 30% 96%; 
-  /* Soft Black / Dark Charcoal for text */
-  --foreground: 0 0% 10%;
+  /* === Deep Black & Gold — Luxury Theme === */
 
-  /* Navy - Primary Accent */
-  --primary: 220 45% 25%;
-  --primary-foreground: 210 40% 98%;
+  /* Near-black main background */
+  --background: 0 0% 6%;
+  /* Warm cream — main text */
+  --foreground: 40 25% 90%;
 
-  /* Beige / Warm Gray - Secondary */
-  --secondary: 40 20% 92%;
-  --secondary-foreground: 220 45% 15%;
+  /* Cards — slightly lighter dark surface */
+  --card: 0 0% 11%;
+  --card-foreground: 40 25% 90%;
 
-  /* Muted - Subtle backgrounds */
-  --muted: 40 20% 88%;
-  --muted-foreground: 220 15% 45%;
+  /* Popover */
+  --popover: 0 0% 11%;
+  --popover-foreground: 40 25% 90%;
 
-  /* Accent - Lighter Navy/Blue */
-  --accent: 220 30% 90%;
-  --accent-foreground: 220 45% 20%;
+  /* Warm Gold — Primary Accent */
+  --primary: 42 70% 52%;
+  --primary-foreground: 0 0% 5%;
+
+  /* Dark charcoal — Secondary */
+  --secondary: 0 0% 16%;
+  --secondary-foreground: 40 25% 90%;
+
+  /* Muted dark */
+  --muted: 0 0% 14%;
+  --muted-foreground: 40 12% 55%;
+
+  /* Gold-tinted dark surface */
+  --accent: 42 35% 14%;
+  --accent-foreground: 42 70% 52%;
 
   /* Destructive */
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
 
-  /* Borders - Soft Slate */
-  --border: 220 15% 85%;
-  --input: 220 15% 85%;
-  --ring: 220 45% 25%;
+  /* Borders — subtle gold-tinted dark */
+  --border: 42 20% 20%;
+  --input: 0 0% 16%;
+  --ring: 42 70% 52%;
 
   --radius: 0.25rem;
-  
+
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Lato', sans-serif;
 }
@@ -55,25 +63,24 @@
   }
 }
 
-/* Custom utilities for that extra polish */
 @layer utilities {
-  .text-navy {
+  .text-gold {
     color: hsl(var(--primary));
   }
-  
-  .bg-navy {
+
+  .bg-gold {
     background-color: hsl(var(--primary));
-  }
-  
-  .border-navy {
-    border-color: hsl(var(--primary));
   }
 
   .shadow-soft {
-    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+  }
+
+  .shadow-gold {
+    box-shadow: 0 0 40px -8px rgba(201, 168, 76, 0.18);
   }
 
   .glass-card {
-    @apply bg-white/60 backdrop-blur-md border border-white/20 shadow-soft;
+    @apply bg-card/80 backdrop-blur-md border border-primary/10 shadow-soft;
   }
 }

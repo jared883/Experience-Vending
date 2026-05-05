@@ -46,10 +46,7 @@ export default function Book() {
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   
-  // Check if we're before July 1st, 2026 (pre-launch period)
   const isPreLaunch = new Date() < new Date(2026, 6, 1);
-
-  // Derive disabled dates from existing bookings
   const disabledDates = bookings?.map(b => new Date(b.eventDate)) || [];
 
   const form = useForm<InsertBooking>({
@@ -77,16 +74,16 @@ export default function Book() {
       <div className="min-h-screen bg-background flex flex-col">
         <Navigation />
         <div className="flex-grow flex items-center justify-center p-4">
-          <Card className="max-w-lg w-full p-8 text-center border-primary/20 shadow-2xl">
-            <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle2 className="w-10 h-10 text-green-600" />
+          <Card className="max-w-lg w-full p-8 text-center border-primary/20 shadow-gold bg-card">
+            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle2 className="w-10 h-10 text-primary" />
             </div>
             <h2 className="font-serif text-3xl font-bold mb-4">Request Received!</h2>
-            <p className="text-muted-foreground mb-8 text-lg">
+            <p className="text-foreground/60 mb-8 text-lg">
               Thank you for choosing Experience Vending. We've received your booking request for 
               <span className="font-semibold text-foreground"> {form.getValues().eventDate && format(form.getValues().eventDate, "MMMM do, yyyy")}</span>.
             </p>
-            <p className="text-sm text-muted-foreground mb-8">
+            <p className="text-sm text-foreground/50 mb-8">
               We will review your request and send a confirmation email along with an invoice within 24 hours.
             </p>
             <Button onClick={() => window.location.href = "/"} className="bg-primary text-primary-foreground">
@@ -110,7 +107,7 @@ export default function Book() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
             {/* Left Column: Form */}
             <div className="lg:col-span-2">
-              <Card className="border-border/60 shadow-soft">
+              <Card className="border-border/60 shadow-gold bg-card">
                 <CardContent className="p-8">
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -123,7 +120,7 @@ export default function Book() {
                             <FormItem>
                               <FormLabel>Full Name</FormLabel>
                               <FormControl>
-                                <Input placeholder="John Doe" {...field} className="bg-white/50" />
+                                <Input placeholder="John Doe" {...field} className="bg-white/5 border-border/60" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -137,7 +134,7 @@ export default function Book() {
                             <FormItem>
                               <FormLabel>Email Address</FormLabel>
                               <FormControl>
-                                <Input placeholder="john@example.com" {...field} className="bg-white/50" />
+                                <Input placeholder="john@example.com" {...field} className="bg-white/5 border-border/60" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -153,7 +150,7 @@ export default function Book() {
                             <FormItem>
                               <FormLabel>Phone Number</FormLabel>
                               <FormControl>
-                                <Input placeholder="(555) 123-4567" {...field} className="bg-white/50" />
+                                <Input placeholder="(555) 123-4567" {...field} className="bg-white/5 border-border/60" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -168,11 +165,11 @@ export default function Book() {
                               <FormLabel>Event Type</FormLabel>
                               <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
-                                  <SelectTrigger className="bg-white/50">
+                                  <SelectTrigger className="bg-white/5 border-border/60">
                                     <SelectValue placeholder="Select event type" />
                                   </SelectTrigger>
                                 </FormControl>
-                                <SelectContent className="bg-white dark:bg-slate-900 border shadow-lg">
+                                <SelectContent className="bg-card border border-border shadow-lg">
                                   <SelectItem value="wedding">Wedding</SelectItem>
                                   <SelectItem value="corporate">Corporate Event</SelectItem>
                                   <SelectItem value="birthday">Birthday Party</SelectItem>
@@ -200,7 +197,7 @@ export default function Book() {
                                       variant={"outline"}
                                       data-testid="button-date-picker"
                                       className={cn(
-                                        "w-full pl-3 text-left font-normal bg-white/50",
+                                        "w-full pl-3 text-left font-normal bg-white/5 border-border/60",
                                         !field.value && "text-muted-foreground"
                                       )}
                                     >
@@ -213,7 +210,7 @@ export default function Book() {
                                     </Button>
                                   </FormControl>
                                 </PopoverTrigger>
-                                <PopoverContent className="w-auto p-0" align="start">
+                                <PopoverContent className="w-auto p-0 bg-card border border-border" align="start">
                                   <Calendar
                                     mode="single"
                                     selected={field.value}
@@ -223,7 +220,7 @@ export default function Book() {
                                     }}
                                     disabled={[
                                       ...disabledDates, 
-                                      { before: isPreLaunch ? new Date(2026, 6, 1) : new Date() } // Before July 1st 2026 during pre-launch, otherwise just past dates
+                                      { before: isPreLaunch ? new Date(2026, 6, 1) : new Date() }
                                     ]}
                                     initialFocus
                                   />
@@ -243,11 +240,11 @@ export default function Book() {
                               <FormLabel>Package Selection</FormLabel>
                               <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
-                                  <SelectTrigger className="bg-white/50">
+                                  <SelectTrigger className="bg-white/5 border-border/60">
                                     <SelectValue placeholder="Select a package" />
                                   </SelectTrigger>
                                 </FormControl>
-                                <SelectContent className="bg-white dark:bg-slate-900 border shadow-lg">
+                                <SelectContent className="bg-card border border-border shadow-lg">
                                   <SelectItem value="basic">The Essential ($1,250)</SelectItem>
                                   <SelectItem value="advanced">The Classic ($1,500)</SelectItem>
                                   <SelectItem value="premium">The Gala ($2,500)</SelectItem>
@@ -268,7 +265,7 @@ export default function Book() {
                             <FormControl>
                               <Textarea 
                                 placeholder="Tell us about your venue, theme, or any special requests..." 
-                                className="resize-none min-h-[120px] bg-white/50" 
+                                className="resize-none min-h-[120px] bg-white/5 border-border/60" 
                                 {...field} 
                                 value={field.value || ""} 
                               />
@@ -279,7 +276,7 @@ export default function Book() {
                       />
 
                       {submitError && (
-                        <div className="bg-red-50 border border-red-200 text-red-800 rounded-lg px-4 py-3 text-sm">
+                        <div className="bg-red-950/50 border border-red-800/50 text-red-400 rounded-lg px-4 py-3 text-sm">
                           <strong>Submission failed:</strong> {submitError}
                         </div>
                       )}
@@ -307,9 +304,9 @@ export default function Book() {
 
             {/* Right Column: Info */}
             <div className="space-y-8">
-              <div className="bg-primary/5 p-8 rounded-xl border border-primary/20">
-                <h3 className="font-serif text-xl font-bold mb-4 text-primary-dark">What happens next?</h3>
-                <ol className="space-y-4 text-sm text-muted-foreground list-decimal pl-4">
+              <div className="bg-primary/10 p-8 rounded-xl border border-primary/20">
+                <h3 className="font-serif text-xl font-bold mb-4 text-primary">What happens next?</h3>
+                <ol className="space-y-4 text-sm text-foreground/60 list-decimal pl-4">
                   <li><strong className="text-foreground">Review:</strong> We'll check our availability for your specific date.</li>
                   <li><strong className="text-foreground">Contract:</strong> We'll email you a rental agreement and invoice.</li>
                   <li><strong className="text-foreground">Deposit:</strong> A 50% retainer secures your date.</li>
@@ -317,20 +314,20 @@ export default function Book() {
                 </ol>
               </div>
 
-              <div className="bg-muted/30 p-8 rounded-xl border border-border">
+              <div className="bg-card p-8 rounded-xl border border-border/50">
                 <h3 className="font-serif text-xl font-bold mb-4">Availability</h3>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-foreground/60 mb-4">
                   {isPreLaunch ? (
                     <><strong className="text-primary">Availability begins July 1st, 2026.</strong> Book now to secure your preferred date for the upcoming season!</>
                   ) : (
                     <>Dates marked in gray on the calendar are already booked. We recommend booking 3-6 months in advance for peak wedding season (May-Oct).</>
                   )}
                 </p>
-                <div className="flex items-center gap-2 text-sm">
-                  <div className="w-3 h-3 rounded-full bg-gray-200"></div>
+                <div className="flex items-center gap-2 text-sm text-foreground/50">
+                  <div className="w-3 h-3 rounded-full bg-foreground/20"></div>
                   <span>Booked</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm mt-1">
+                <div className="flex items-center gap-2 text-sm text-foreground/50 mt-1">
                   <div className="w-3 h-3 rounded-full bg-primary"></div>
                   <span>Available</span>
                 </div>

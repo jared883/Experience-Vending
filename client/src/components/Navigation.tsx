@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import logo from "@assets/Website_Logo_1778001912952.png";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -18,15 +19,20 @@ export default function Navigation() {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
+    <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-border/50">
       <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-3 group">
+          <img
+            src={logo}
+            alt="Experience Vending Logo"
+            className="w-11 h-11 rounded-full object-cover ring-1 ring-primary/30 group-hover:ring-primary/60 transition-all duration-300"
+          />
           <div className="flex flex-col">
-            <span className="font-serif text-2xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-300">
+            <span className="font-serif text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-300">
               Experience Vending
             </span>
-            <span className="text-[0.65rem] tracking-[0.2em] text-muted-foreground uppercase">
+            <span className="text-[0.6rem] tracking-[0.22em] text-primary/70 uppercase">
               Luxury Photo Booths
             </span>
           </div>
@@ -40,7 +46,7 @@ export default function Navigation() {
               href={link.href}
               className={cn(
                 "text-sm font-medium tracking-wide transition-all hover:text-primary relative py-1",
-                location === link.href ? "text-primary font-semibold" : "text-foreground/80"
+                location === link.href ? "text-primary font-semibold" : "text-foreground/70"
               )}
             >
               {link.label}
@@ -85,7 +91,7 @@ export default function Navigation() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
                     "text-lg font-serif font-medium",
-                    location === link.href ? "text-primary" : "text-foreground"
+                    location === link.href ? "text-primary" : "text-foreground/80"
                   )}
                 >
                   {link.label}

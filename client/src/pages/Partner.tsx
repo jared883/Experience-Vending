@@ -77,13 +77,13 @@ export default function Partner() {
       <div className="min-h-screen bg-background flex flex-col">
         <Navigation />
         <div className="flex-grow flex items-center justify-center p-4">
-          <Card className="max-w-lg w-full p-8 text-center border-primary/20 shadow-2xl">
-            <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle2 className="w-10 h-10 text-green-600" />
+          <Card className="max-w-lg w-full p-8 text-center border-primary/20 shadow-gold bg-card">
+            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle2 className="w-10 h-10 text-primary" />
             </div>
             <h2 className="font-serif text-3xl font-bold mb-4">Application Received!</h2>
-            <p className="text-muted-foreground mb-6 text-lg">
-              Thank you for your interest in partnering with Experience Vending. We'll review your application and reach out within <strong>24 hours</strong>.
+            <p className="text-foreground/60 mb-6 text-lg">
+              Thank you for your interest in partnering with Experience Vending. We'll review your application and reach out within <strong className="text-foreground">24 hours</strong>.
             </p>
             <Button onClick={() => window.location.href = "/"} className="bg-primary text-primary-foreground">
               Return Home
@@ -100,7 +100,7 @@ export default function Partner() {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-foreground text-background">
+      <section className="pt-32 pb-16 bg-card border-b border-border/50">
         <div className="container mx-auto px-4 md:px-6 text-center max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -108,10 +108,10 @@ export default function Partner() {
             transition={{ duration: 0.6 }}
           >
             <span className="text-primary tracking-[0.2em] text-sm uppercase font-medium">Venue Partnership</span>
-            <h1 className="font-serif text-5xl md:text-6xl font-bold mt-3 mb-6 text-white">
+            <h1 className="font-serif text-5xl md:text-6xl font-bold mt-3 mb-6">
               Get a Booth <span className="text-primary italic">Now!</span>
             </h1>
-            <p className="text-background/70 text-lg font-light leading-relaxed">
+            <p className="text-foreground/60 text-lg font-light leading-relaxed">
               We place one of our luxury booths in your venue at no cost to you. We handle everything — you simply enjoy the added experience your guests love.
             </p>
           </motion.div>
@@ -119,7 +119,7 @@ export default function Partner() {
       </section>
 
       {/* Benefits */}
-      <section className="py-20 bg-muted/30 border-b border-border/50">
+      <section className="py-20 bg-background border-b border-border/50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {[
@@ -150,7 +150,7 @@ export default function Partner() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-xl p-6 border border-border/50 shadow-soft text-center"
+                className="bg-card rounded-xl p-6 border border-border/50 shadow-soft text-center hover:border-primary/40 hover:shadow-gold transition-all"
               >
                 <div className="mx-auto w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                   {b.icon}
@@ -164,15 +164,15 @@ export default function Partner() {
       </section>
 
       {/* Application Form */}
-      <section className="py-20">
+      <section className="py-20 bg-card">
         <div className="container mx-auto px-4 md:px-6 max-w-2xl">
           <div className="text-center mb-12">
             <span className="text-primary tracking-[0.2em] text-sm uppercase font-medium">Apply Today</span>
             <h2 className="font-serif text-4xl font-bold mt-2">Venue Application</h2>
-            <p className="text-muted-foreground mt-4 font-light">Fill out the form below and we'll be in touch within 24 hours.</p>
+            <p className="text-foreground/60 mt-4 font-light">Fill out the form below and we'll be in touch within 24 hours.</p>
           </div>
 
-          <Card className="border-border/60 shadow-soft">
+          <Card className="border-border/60 shadow-gold bg-background">
             <CardContent className="p-8">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
@@ -180,14 +180,14 @@ export default function Partner() {
                     <FormField control={form.control} name="name" render={({ field }) => (
                       <FormItem>
                         <FormLabel>Your Name</FormLabel>
-                        <FormControl><Input placeholder="Jane Smith" {...field} className="bg-white/50" /></FormControl>
+                        <FormControl><Input placeholder="Jane Smith" {...field} className="bg-white/5 border-border/60" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
                     <FormField control={form.control} name="email" render={({ field }) => (
                       <FormItem>
                         <FormLabel>Email Address</FormLabel>
-                        <FormControl><Input placeholder="jane@venue.com" {...field} className="bg-white/50" /></FormControl>
+                        <FormControl><Input placeholder="jane@venue.com" {...field} className="bg-white/5 border-border/60" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
@@ -197,14 +197,14 @@ export default function Partner() {
                     <FormField control={form.control} name="phone" render={({ field }) => (
                       <FormItem>
                         <FormLabel>Phone Number</FormLabel>
-                        <FormControl><Input placeholder="(555) 123-4567" {...field} className="bg-white/50" /></FormControl>
+                        <FormControl><Input placeholder="(555) 123-4567" {...field} className="bg-white/5 border-border/60" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
                     <FormField control={form.control} name="businessName" render={({ field }) => (
                       <FormItem>
                         <FormLabel>Business Name</FormLabel>
-                        <FormControl><Input placeholder="The Grand Venue" {...field} className="bg-white/50" /></FormControl>
+                        <FormControl><Input placeholder="The Grand Venue" {...field} className="bg-white/5 border-border/60" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
@@ -214,14 +214,14 @@ export default function Partner() {
                     <FormField control={form.control} name="businessType" render={({ field }) => (
                       <FormItem>
                         <FormLabel>Type of Business</FormLabel>
-                        <FormControl><Input placeholder="e.g. Restaurant, Wedding Venue..." {...field} className="bg-white/50" /></FormControl>
+                        <FormControl><Input placeholder="e.g. Restaurant, Wedding Venue..." {...field} className="bg-white/5 border-border/60" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
                     <FormField control={form.control} name="location" render={({ field }) => (
                       <FormItem>
                         <FormLabel>City / Location</FormLabel>
-                        <FormControl><Input placeholder="Fort Worth, TX" {...field} className="bg-white/50" /></FormControl>
+                        <FormControl><Input placeholder="Fort Worth, TX" {...field} className="bg-white/5 border-border/60" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
@@ -233,7 +233,7 @@ export default function Partner() {
                       <FormControl>
                         <Textarea
                           placeholder="Tell us about your venue, typical foot traffic, or any questions..."
-                          className="resize-none min-h-[120px] bg-white/50"
+                          className="resize-none min-h-[120px] bg-white/5 border-border/60"
                           {...field}
                         />
                       </FormControl>

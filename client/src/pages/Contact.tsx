@@ -49,35 +49,35 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto items-start">
             
             <div className="space-y-8">
-              <p className="text-lg text-muted-foreground font-light leading-relaxed">
-                Have questions about our packages? Need a custom quote for a multi-day event or brand activation? We'd love to hear from you.
+              <p className="text-lg text-foreground/60 font-light leading-relaxed">
+                Have questions about our booths or placement options? Need more info before applying? We'd love to hear from you.
               </p>
               
               <div className="space-y-6">
                 <div>
                   <h3 className="font-serif text-xl font-bold mb-2">Email Us</h3>
                   <div className="flex flex-col space-y-1">
-                    <a href="mailto:jared@experiencevending.com" className="text-primary hover:underline text-lg">jared@experiencevending.com</a>
-                    <a href="mailto:kylee@experiencevending.com" className="text-primary hover:underline text-lg">kylee@experiencevending.com</a>
+                    <a href="mailto:jared@experiencevending.com" className="text-primary hover:text-primary/80 transition-colors text-lg">jared@experiencevending.com</a>
+                    <a href="mailto:kylee@experiencevending.com" className="text-primary hover:text-primary/80 transition-colors text-lg">kylee@experiencevending.com</a>
                   </div>
                 </div>
                 
                 <div>
                   <h3 className="font-serif text-xl font-bold mb-2">Call Us</h3>
                   <div className="flex flex-col space-y-1">
-                    <a href="tel:+19403277045" className="text-foreground hover:text-primary transition-colors text-lg">(940) 327-7045</a>
-                    <a href="tel:+18178970460" className="text-foreground hover:text-primary transition-colors text-lg">(817) 897-0460</a>
+                    <a href="tel:+19403277045" className="text-foreground/70 hover:text-primary transition-colors text-lg">(940) 327-7045</a>
+                    <a href="tel:+18178970460" className="text-foreground/70 hover:text-primary transition-colors text-lg">(817) 897-0460</a>
                   </div>
                 </div>
 
                 <div>
                   <h3 className="font-serif text-xl font-bold mb-2">Service Area</h3>
-                  <p className="text-muted-foreground text-lg">Based in Fort Worth, Texas. Serving the DFW Metroplex and surrounding areas.</p>
+                  <p className="text-foreground/60 text-lg">Based in Fort Worth, Texas. Serving the DFW Metroplex and surrounding areas.</p>
                 </div>
               </div>
             </div>
 
-            <Card className="border-border/60 shadow-soft">
+            <Card className="border-border/60 shadow-gold bg-card">
               <CardContent className="p-8">
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -88,7 +88,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel>Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your Name" {...field} className="bg-white/50" />
+                            <Input placeholder="Your Name" {...field} className="bg-white/5 border-border/60" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -102,7 +102,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel>Email</FormLabel>
                           <FormControl>
-                            <Input placeholder="you@company.com" {...field} className="bg-white/50" />
+                            <Input placeholder="you@company.com" {...field} className="bg-white/5 border-border/60" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -118,7 +118,7 @@ export default function Contact() {
                           <FormControl>
                             <Textarea 
                               placeholder="How can we help you?" 
-                              className="resize-none min-h-[150px] bg-white/50" 
+                              className="resize-none min-h-[150px] bg-white/5 border-border/60" 
                               {...field} 
                             />
                           </FormControl>
