@@ -49,7 +49,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto items-start">
             
             <div className="space-y-8">
-              <p className="text-lg text-foreground/60 font-light leading-relaxed">
+              <p className="text-lg text-foreground/75 font-light leading-relaxed">
                 Have questions about our booths or placement options? Need more info before applying? We'd love to hear from you.
               </p>
               
@@ -72,7 +72,7 @@ export default function Contact() {
 
                 <div>
                   <h3 className="font-serif text-xl font-bold mb-2">Service Area</h3>
-                  <p className="text-foreground/60 text-lg">Based in Fort Worth, Texas. Serving the DFW Metroplex and surrounding areas.</p>
+                  <p className="text-foreground/75 text-lg">Based in Fort Worth, Texas. Serving the DFW Metroplex and surrounding areas.</p>
                 </div>
               </div>
             </div>
@@ -88,7 +88,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel>Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your Name" {...field} className="bg-white/5 border-border/60" />
+                            <Input placeholder="Your Name" {...field} className="bg-background/70 border-border" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -102,7 +102,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel>Email</FormLabel>
                           <FormControl>
-                            <Input placeholder="you@company.com" {...field} className="bg-white/5 border-border/60" />
+                            <Input placeholder="you@company.com" {...field} className="bg-background/70 border-border" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -118,7 +118,7 @@ export default function Contact() {
                           <FormControl>
                             <Textarea 
                               placeholder="How can we help you?" 
-                              className="resize-none min-h-[150px] bg-white/5 border-border/60" 
+                              className="resize-none min-h-[150px] bg-background/70 border-border" 
                               {...field} 
                             />
                           </FormControl>

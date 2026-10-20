@@ -78,8 +78,8 @@ export default function Packages() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={`relative flex flex-col p-8 rounded-2xl transition-all duration-300 ${
                   pkg.highlight 
-                    ? "bg-white border-2 border-primary shadow-xl scale-105 z-10" 
-                    : "bg-white/50 border border-border hover:border-primary/30 shadow-soft"
+                    ? "bg-card border-2 border-primary shadow-xl scale-105 z-10" 
+                    : "bg-card/60 border border-border hover:border-primary/30 shadow-soft"
                 }`}
               >
                 {pkg.highlight && (

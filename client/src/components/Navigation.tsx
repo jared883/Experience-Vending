@@ -1,10 +1,10 @@
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import logo from "@assets/Website_Logo_1778001912952.png";
+import logo from "@assets/ev-logo-booth-mark-nav.png";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -12,34 +12,49 @@ export default function Navigation() {
 
   const links = [
     { href: "/", label: "Home" },
+    { href: "/#locations", label: "Locations" },
     { href: "/our-booth", label: "Our Booths" },
     { href: "/partner", label: "Partner With Us" },
     { href: "/rentals", label: "Rentals" },
     { href: "/contact", label: "Contact" },
   ];
 
+  // "/#locations" scrolls to the Locations section on the Home page
+  const handleAnchorClick = (e: MouseEvent, href: string) => {
+    setIsMobileMenuOpen(false);
+    if (!href.includes("#")) return;
+    const id = href.split("#")[1];
+    if (location === "/") {
+      e.preventDefault();
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      window.history.replaceState(null, "", href);
+    }
+  };
+
+  const isActive = (href: string) => !href.includes("#") && location === href;
+
   return (
-    <header className="fixed top-0 w-full z-50 bg-background/96 backdrop-blur-md border-b border-border/40">
+    <header className="fixed top-0 w-full z-50 bg-background/96 backdrop-blur-md border-b border-primary/20">
       <div className="container mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3.5 group">
           <img
             src={logo}
             alt="Experience Vending Logo"
-            className="w-10 h-10 rounded-full object-cover ring-1 ring-primary/25 group-hover:ring-primary/50 transition-all duration-500"
+            className="h-12 w-auto opacity-95 group-hover:opacity-100 transition-opacity duration-500"
           />
           <div className="flex flex-col leading-none">
-            <span className="font-serif text-[1.15rem] font-semibold tracking-wide text-foreground group-hover:text-primary transition-colors duration-400">
+            <span className="font-serif text-[1.35rem] font-semibold tracking-wide text-foreground group-hover:text-primary transition-colors duration-400">
               Experience Vending
             </span>
-            <span className="text-[0.55rem] tracking-[0.28em] text-primary/55 uppercase mt-0.5 font-light">
+            <span className="text-[0.55rem] tracking-[0.3em] text-primary/80 uppercase mt-1">
               Luxury Photo Booths
             </span>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-9">
+        <nav className="hidden lg:flex items-center gap-8">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -48,7 +63,7 @@ export default function Navigation() {
                 "text-[0.8rem] tracking-[0.1em] uppercase font-light transition-all duration-300 relative py-1",
                 location === link.href
                   ? "text-primary"
-                  : "text-foreground/55 hover:text-foreground/90"
+                  : "text-foreground/70 hover:text-foreground/90"
               )}
             >
               {link.label}
@@ -70,7 +85,7 @@ export default function Navigation() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden p-2 text-foreground/70"
+          className="lg:hidden p-2 text-foreground/80"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -84,17 +99,17 @@ export default function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border/40 overflow-hidden"
+            className="lg:hidden bg-background border-b border-primary/20 overflow-hidden"
           >
             <nav className="flex flex-col p-8 space-y-5">
               {links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => handleAnchorClick(e, link.href)}
                   className={cn(
                     "text-sm tracking-[0.12em] uppercase font-light",
-                    location === link.href ? "text-primary" : "text-foreground/60"
+                    isActive(link.href) ? "text-primary" : "text-foreground/80"
                   )}
                 >
                   {link.label}

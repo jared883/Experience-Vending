@@ -82,7 +82,7 @@ export default function Partner() {
               <CheckCircle2 className="w-10 h-10 text-primary" />
             </div>
             <h2 className="font-serif text-3xl font-bold mb-4">Application Received!</h2>
-            <p className="text-foreground/60 mb-6 text-lg">
+            <p className="text-foreground/75 mb-6 text-lg">
               Thank you for your interest in partnering with Experience Vending. We'll review your application and reach out within <strong className="text-foreground">24 hours</strong>.
             </p>
             <Button onClick={() => window.location.href = "/"} className="bg-primary text-primary-foreground">
@@ -111,7 +111,7 @@ export default function Partner() {
             <h1 className="font-serif text-5xl md:text-6xl font-bold mt-3 mb-6">
               Get a Booth <span className="text-primary italic">Now!</span>
             </h1>
-            <p className="text-foreground/60 text-lg font-light leading-relaxed">
+            <p className="text-foreground/75 text-lg font-light leading-relaxed">
               We place one of our luxury booths in your venue at no cost to you. We handle everything — you simply enjoy the added experience your guests love.
             </p>
           </motion.div>
@@ -169,7 +169,7 @@ export default function Partner() {
           <div className="text-center mb-12">
             <span className="text-primary tracking-[0.2em] text-sm uppercase font-medium">Apply Today</span>
             <h2 className="font-serif text-4xl font-bold mt-2">Venue Application</h2>
-            <p className="text-foreground/60 mt-4 font-light">Fill out the form below and we'll be in touch within 24 hours.</p>
+            <p className="text-foreground/75 mt-4 font-light">Fill out the form below and we'll be in touch within 24 hours.</p>
           </div>
 
           <Card className="border-border/60 shadow-gold bg-background">
@@ -180,14 +180,14 @@ export default function Partner() {
                     <FormField control={form.control} name="name" render={({ field }) => (
                       <FormItem>
                         <FormLabel>Your Name</FormLabel>
-                        <FormControl><Input placeholder="Jane Smith" {...field} className="bg-white/5 border-border/60" /></FormControl>
+                        <FormControl><Input placeholder="Jane Smith" {...field} className="bg-background/70 border-border" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
                     <FormField control={form.control} name="email" render={({ field }) => (
                       <FormItem>
                         <FormLabel>Email Address</FormLabel>
-                        <FormControl><Input placeholder="jane@venue.com" {...field} className="bg-white/5 border-border/60" /></FormControl>
+                        <FormControl><Input placeholder="jane@venue.com" {...field} className="bg-background/70 border-border" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
@@ -197,14 +197,14 @@ export default function Partner() {
                     <FormField control={form.control} name="phone" render={({ field }) => (
                       <FormItem>
                         <FormLabel>Phone Number</FormLabel>
-                        <FormControl><Input placeholder="(555) 123-4567" {...field} className="bg-white/5 border-border/60" /></FormControl>
+                        <FormControl><Input placeholder="(555) 123-4567" {...field} className="bg-background/70 border-border" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
                     <FormField control={form.control} name="businessName" render={({ field }) => (
                       <FormItem>
                         <FormLabel>Business Name</FormLabel>
-                        <FormControl><Input placeholder="The Grand Venue" {...field} className="bg-white/5 border-border/60" /></FormControl>
+                        <FormControl><Input placeholder="The Grand Venue" {...field} className="bg-background/70 border-border" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
@@ -214,14 +214,14 @@ export default function Partner() {
                     <FormField control={form.control} name="businessType" render={({ field }) => (
                       <FormItem>
                         <FormLabel>Type of Business</FormLabel>
-                        <FormControl><Input placeholder="e.g. Restaurant, Wedding Venue..." {...field} className="bg-white/5 border-border/60" /></FormControl>
+                        <FormControl><Input placeholder="e.g. Restaurant, Wedding Venue..." {...field} className="bg-background/70 border-border" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
                     <FormField control={form.control} name="location" render={({ field }) => (
                       <FormItem>
                         <FormLabel>City / Location</FormLabel>
-                        <FormControl><Input placeholder="Fort Worth, TX" {...field} className="bg-white/5 border-border/60" /></FormControl>
+                        <FormControl><Input placeholder="Fort Worth, TX" {...field} className="bg-background/70 border-border" /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )} />
@@ -233,7 +233,7 @@ export default function Partner() {
                       <FormControl>
                         <Textarea
                           placeholder="Tell us about your venue, typical foot traffic, or any questions..."
-                          className="resize-none min-h-[120px] bg-white/5 border-border/60"
+                          className="resize-none min-h-[120px] bg-background/70 border-border"
                           {...field}
                         />
                       </FormControl>

@@ -99,7 +99,7 @@ export default function Reviews() {
             href="https://g.page/r/experiencevendingllc/review"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[0.7rem] tracking-[0.2em] uppercase font-light text-foreground/40 hover:text-primary transition-colors duration-300"
+            className="inline-flex items-center gap-2 text-[0.7rem] tracking-[0.2em] uppercase font-light text-foreground/75 hover:text-primary transition-colors duration-300"
             data-testid="link-google-reviews"
           >
             <SiGoogle className="w-3.5 h-3.5" />

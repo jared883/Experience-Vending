@@ -15,7 +15,7 @@ function SpecBlock({ label, items }: { label: string; items: string[] }) {
       <p className="text-xs uppercase tracking-widest font-semibold text-primary mb-2">{label}</p>
       <ul className="space-y-1">
         {items.map((item, i) => (
-          <li key={i} className="text-sm text-foreground/60 font-light flex items-start gap-2">
+          <li key={i} className="text-sm text-foreground/75 font-light flex items-start gap-2">
             <span className="text-primary mt-0.5 shrink-0">·</span>
             {item}
           </li>
@@ -42,7 +42,7 @@ export default function OurBooth() {
             <h1 className="font-serif text-5xl md:text-6xl font-bold mt-3 mb-6">
               Our <span className="text-primary italic">Booths</span>
             </h1>
-            <p className="text-foreground/60 text-lg font-light leading-relaxed">
+            <p className="text-foreground/75 text-lg font-light leading-relaxed">
               We offer two professional photo booth models — each fully managed by our team, designed for permanent venue placement, and built to delight guests.
             </p>
           </motion.div>
@@ -83,9 +83,9 @@ export default function OurBooth() {
               <div>
                 <span className="text-primary tracking-[0.2em] text-sm uppercase font-medium">Model 01</span>
                 <h2 className="font-serif text-4xl font-bold mt-1">Photoma Mini</h2>
-                <p className="text-foreground/40 text-sm mt-1">by Apple Industries</p>
+                <p className="text-foreground/75 text-sm mt-1">by Apple Industries</p>
               </div>
-              <p className="text-foreground/60 text-lg font-light leading-relaxed">
+              <p className="text-foreground/75 text-lg font-light leading-relaxed">
                 A self-contained photo booth with a compact footprint — ideal for restaurants, bars, retail spaces, and boutique venues. Bold presence without taking over the room. Indoor use.
               </p>
 
@@ -100,7 +100,7 @@ export default function OurBooth() {
                     <div className="p-2.5 bg-primary/10 rounded-full shrink-0">{f.icon}</div>
                     <div>
                       <h4 className="font-serif font-bold text-base">{f.title}</h4>
-                      <p className="text-foreground/50 text-sm font-light mt-0.5">{f.desc}</p>
+                      <p className="text-foreground/70 text-sm font-light mt-0.5">{f.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -126,7 +126,7 @@ export default function OurBooth() {
               ].map((s, i) => (
                 <div key={i} className="text-center bg-background rounded-xl p-4 border border-border/40 shadow-soft">
                   <p className="font-serif font-bold text-2xl text-primary">{s.value}</p>
-                  <p className="text-xs text-foreground/40 mt-1 uppercase tracking-wide">{s.label}</p>
+                  <p className="text-xs text-foreground/75 mt-1 uppercase tracking-wide">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -160,9 +160,9 @@ export default function OurBooth() {
               <div>
                 <span className="text-primary tracking-[0.2em] text-sm uppercase font-medium">Model 02</span>
                 <h2 className="font-serif text-4xl font-bold mt-1">Photoma Booth</h2>
-                <p className="text-foreground/40 text-sm mt-1">Full-Size Model · Indoor &amp; Outdoor</p>
+                <p className="text-foreground/75 text-sm mt-1">Full-Size Model · Indoor &amp; Outdoor</p>
               </div>
-              <p className="text-foreground/60 text-lg font-light leading-relaxed">
+              <p className="text-foreground/75 text-lg font-light leading-relaxed">
                 The full-size Photoma Booth is a walk-in experience that makes a statement. Spacious curtained enclosure, dual displays, and a large-format print dispenser — built for high-traffic venues.
               </p>
 
@@ -177,7 +177,7 @@ export default function OurBooth() {
                     <div className="p-2.5 bg-primary/10 rounded-full shrink-0">{f.icon}</div>
                     <div>
                       <h4 className="font-serif font-bold text-base">{f.title}</h4>
-                      <p className="text-foreground/50 text-sm font-light mt-0.5">{f.desc}</p>
+                      <p className="text-foreground/70 text-sm font-light mt-0.5">{f.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -215,11 +215,11 @@ export default function OurBooth() {
               ].map((s, i) => (
                 <div key={i} className="text-center bg-background rounded-xl p-4 border border-border/40 shadow-soft">
                   <p className="font-serif font-bold text-2xl text-primary">{s.value}</p>
-                  <p className="text-xs text-foreground/40 mt-1 uppercase tracking-wide">{s.label}</p>
+                  <p className="text-xs text-foreground/75 mt-1 uppercase tracking-wide">{s.label}</p>
                 </div>
               ))}
             </div>
-            <p className="text-xs text-foreground/40 mb-6 -mt-4">* Includes clearance allowance</p>
+            <p className="text-xs text-foreground/75 mb-6 -mt-4">* Includes clearance allowance</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
               <SpecBlock label="General Features" items={["Fully Customizable","Indoor & Outdoor Use","Touch Screen Navigation","Cashless Payments","Digital & Print Options","Multiple Languages","700 Vends Per Roll"]} />
               <SpecBlock label="Power Requirements" items={["110–240 VAC","50/60 Hz","7 AMPS","800W"]} />
@@ -236,7 +236,7 @@ export default function OurBooth() {
         <div className="container mx-auto px-4 text-center">
           <Shield className="w-10 h-10 text-primary mx-auto mb-4" />
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">Ready to Host One?</h2>
-          <p className="text-foreground/60 text-lg max-w-xl mx-auto mb-8 font-light">
+          <p className="text-foreground/75 text-lg max-w-xl mx-auto mb-8 font-light">
             Not sure which booth fits your space? Tell us about your venue and we'll recommend the right model.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

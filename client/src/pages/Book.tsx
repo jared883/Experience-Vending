@@ -136,13 +136,13 @@ export default function Book() {
               <CheckCircle2 className="w-10 h-10 text-primary" />
             </div>
             <h2 className="font-serif text-3xl font-bold mb-4">Request Received!</h2>
-            <p className="text-foreground/60 mb-8 text-lg">
+            <p className="text-foreground/75 mb-8 text-lg">
               Thank you for choosing Experience Vending. We've received your booking request for{" "}
               <span className="font-semibold text-foreground">
                 {form.getValues().eventDate && format(form.getValues().eventDate, "MMMM do, yyyy")}
               </span>.
             </p>
-            <p className="text-sm text-foreground/50 mb-8">
+            <p className="text-sm text-foreground/70 mb-8">
               We will review your request and send a confirmation email along with an invoice within 24 hours.
             </p>
             <Button onClick={() => window.location.href = "/"} className="bg-primary text-primary-foreground">
@@ -197,7 +197,7 @@ export default function Book() {
                       <h3 className="font-serif text-xl font-bold mb-1">{pkg.name}</h3>
                       <div className="text-xs text-primary uppercase tracking-widest font-light mb-3">{pkg.duration}</div>
                       <div className="font-serif text-3xl font-bold text-foreground mb-4">{pkg.price}</div>
-                      <p className="text-sm text-foreground/60 leading-relaxed">{pkg.description}</p>
+                      <p className="text-sm text-foreground/75 leading-relaxed">{pkg.description}</p>
                     </div>
 
                     <div className="space-y-2.5 mb-5 flex-grow">
@@ -212,11 +212,11 @@ export default function Book() {
                     </div>
 
                     <div className="mb-5 pt-4 border-t border-border/30">
-                      <p className="text-[11px] text-foreground/40 uppercase tracking-wider mb-1">Ideal for</p>
-                      <p className="text-xs text-foreground/55 italic">{pkg.ideal}</p>
+                      <p className="text-[11px] text-foreground/75 uppercase tracking-wider mb-1">Ideal for</p>
+                      <p className="text-xs text-foreground/70 italic">{pkg.ideal}</p>
                     </div>
 
-                    <p className="text-[11px] text-foreground/35 italic mb-4 text-center">
+                    <p className="text-[11px] text-foreground/70 italic mb-4 text-center">
                       Vinyl wrap customization available upon request.
                     </p>
 
@@ -265,7 +265,7 @@ export default function Book() {
                             <FormItem>
                               <FormLabel>Full Name</FormLabel>
                               <FormControl>
-                                <Input placeholder="John Doe" {...field} className="bg-white/5 border-border/60" data-testid="input-name" />
+                                <Input placeholder="John Doe" {...field} className="bg-background/70 border-border" data-testid="input-name" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -279,7 +279,7 @@ export default function Book() {
                             <FormItem>
                               <FormLabel>Email Address</FormLabel>
                               <FormControl>
-                                <Input placeholder="john@example.com" {...field} className="bg-white/5 border-border/60" data-testid="input-email" />
+                                <Input placeholder="john@example.com" {...field} className="bg-background/70 border-border" data-testid="input-email" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -295,7 +295,7 @@ export default function Book() {
                             <FormItem>
                               <FormLabel>Phone Number</FormLabel>
                               <FormControl>
-                                <Input placeholder="(555) 123-4567" {...field} className="bg-white/5 border-border/60" data-testid="input-phone" />
+                                <Input placeholder="(555) 123-4567" {...field} className="bg-background/70 border-border" data-testid="input-phone" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -310,7 +310,7 @@ export default function Book() {
                               <FormLabel>Event Type</FormLabel>
                               <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
-                                  <SelectTrigger className="bg-white/5 border-border/60" data-testid="select-event-type">
+                                  <SelectTrigger className="bg-background/70 border-border" data-testid="select-event-type">
                                     <SelectValue placeholder="Select event type" />
                                   </SelectTrigger>
                                 </FormControl>
@@ -342,7 +342,7 @@ export default function Book() {
                                       variant={"outline"}
                                       data-testid="button-date-picker"
                                       className={cn(
-                                        "w-full pl-3 text-left font-normal bg-white/5 border-border/60",
+                                        "w-full pl-3 text-left font-normal bg-background/70 border-border",
                                         !field.value && "text-muted-foreground"
                                       )}
                                     >
@@ -385,7 +385,7 @@ export default function Book() {
                               <FormLabel>Package Selection</FormLabel>
                               <Select onValueChange={field.onChange} value={field.value}>
                                 <FormControl>
-                                  <SelectTrigger className="bg-white/5 border-border/60" data-testid="select-package">
+                                  <SelectTrigger className="bg-background/70 border-border" data-testid="select-package">
                                     <SelectValue placeholder="Select a package" />
                                   </SelectTrigger>
                                 </FormControl>
@@ -410,7 +410,7 @@ export default function Book() {
                             <FormControl>
                               <Textarea
                                 placeholder="Tell us about your venue, theme, or any special requests..."
-                                className="resize-none min-h-[120px] bg-white/5 border-border/60"
+                                className="resize-none min-h-[120px] bg-background/70 border-border"
                                 {...field}
                                 value={field.value || ""}
                                 data-testid="textarea-notes"
@@ -453,7 +453,7 @@ export default function Book() {
             <div className="space-y-8">
               <div className="bg-primary/10 p-8 rounded-xl border border-primary/20">
                 <h3 className="font-serif text-xl font-bold mb-4 text-primary">What happens next?</h3>
-                <ol className="space-y-4 text-sm text-foreground/60 list-decimal pl-4">
+                <ol className="space-y-4 text-sm text-foreground/75 list-decimal pl-4">
                   <li><strong className="text-foreground">Review:</strong> We'll check our availability for your specific date.</li>
                   <li><strong className="text-foreground">Contract:</strong> We'll email you a rental agreement and invoice.</li>
                   <li><strong className="text-foreground">Deposit:</strong> A 50% retainer secures your date.</li>
@@ -463,18 +463,18 @@ export default function Book() {
 
               <div className="bg-card p-8 rounded-xl border border-border/50">
                 <h3 className="font-serif text-xl font-bold mb-4">Availability</h3>
-                <p className="text-sm text-foreground/60 mb-4">
+                <p className="text-sm text-foreground/75 mb-4">
                   {isPreLaunch ? (
                     <><strong className="text-primary">Availability begins July 1st, 2026.</strong> Book now to secure your preferred date for the upcoming season!</>
                   ) : (
                     <>Dates marked in gray on the calendar are already booked. We recommend booking 3–6 months in advance for peak wedding season (May–Oct).</>
                   )}
                 </p>
-                <div className="flex items-center gap-2 text-sm text-foreground/50">
+                <div className="flex items-center gap-2 text-sm text-foreground/70">
                   <div className="w-3 h-3 rounded-full bg-foreground/20"></div>
                   <span>Booked</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-foreground/50 mt-1">
+                <div className="flex items-center gap-2 text-sm text-foreground/70 mt-1">
                   <div className="w-3 h-3 rounded-full bg-primary"></div>
                   <span>Available</span>
                 </div>

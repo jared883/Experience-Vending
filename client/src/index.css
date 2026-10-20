@@ -1,58 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* === Deep Black & Warm Cream — Luxury Palette === */
+  /* === Experience Vending — Espresso & Gold (sampled from the new logo) ===
+     Logo background ≈ #1b1712, gold linework ≈ #b39360, cream wordmark ≈ #e6d7ba */
+  color-scheme: dark;
 
-  /* Very slightly warm deep black */
-  --background: 24 6% 5%;
-  /* Warm ivory — like aged parchment */
-  --foreground: 38 20% 88%;
+  /* Deep espresso / near-black brown */
+  --background: 33 21% 8%;          /* #1a1611 */
+  /* Warm cream text */
+  --foreground: 39 50% 87%;         /* #efe4cf */
 
-  /* Cards — slightly lighter warm dark */
-  --card: 24 5% 10%;
-  --card-foreground: 38 20% 88%;
+  /* Cards — a shade lighter espresso */
+  --card: 32 24% 11%;               /* #221c15 */
+  --card-foreground: 39 50% 87%;
+  --card-border: 34 26% 21%;
 
-  /* Popover */
-  --popover: 24 5% 10%;
-  --popover-foreground: 38 20% 88%;
+  /* Popovers / menus */
+  --popover: 32 25% 12%;
+  --popover-foreground: 39 50% 87%;
+  --popover-border: 34 26% 24%;
 
-  /* Warm Cream — Primary Accent */
-  --primary: 38 42% 84%;
-  --primary-foreground: 24 6% 6%;
+  /* Antique gold — primary accent (logo linework, lifted slightly for legibility) */
+  --primary: 38 43% 60%;            /* #c4a46c */
+  --primary-foreground: 30 28% 7%;  /* #17120d */
+  --primary-border: hsl(38 43% 52%);
 
-  /* Dark warm charcoal — Secondary */
-  --secondary: 24 4% 15%;
-  --secondary-foreground: 38 20% 88%;
+  /* Secondary surface */
+  --secondary: 32 25% 14%;
+  --secondary-foreground: 39 50% 87%;
+  --secondary-border: hsl(31 23% 22%);
 
-  /* Muted warm dark */
-  --muted: 24 4% 13%;
-  --muted-foreground: 38 10% 50%;
+  /* Muted */
+  --muted: 32 22% 13%;
+  --muted-foreground: 37 22% 66%;   /* ≈ #b6a78f — AA on espresso */
+  --muted-border: hsl(31 23% 20%);
 
-  /* Cream-tinted dark surface */
-  --accent: 38 12% 12%;
-  --accent-foreground: 38 42% 84%;
+  /* Accent (hover surfaces) */
+  --accent: 34 26% 16%;
+  --accent-foreground: 40 52% 72%;
+  --accent-border: hsl(31 23% 24%);
 
   /* Destructive */
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 98%;
+  --destructive: 0 62% 52%;
+  --destructive-foreground: 39 50% 94%;
+  --destructive-border: hsl(0 62% 45%);
 
-  /* Borders — subtle cream-tinted hairline */
-  --border: 38 10% 16%;
-  --input: 24 4% 14%;
-  --ring: 38 42% 84%;
+  /* Gold hairlines */
+  --border: 34 26% 21%;             /* #43362a — warm hairline */
+  --input: 34 26% 24%;
+  --ring: 38 43% 60%;
+
+  --chart-1: 38 43% 60%;
+  --chart-2: 39 50% 80%;
+  --chart-3: 30 30% 45%;
+  --chart-4: 25 35% 35%;
+  --chart-5: 40 20% 65%;
+
+  --sidebar: 32 24% 10%;
+  --sidebar-foreground: 39 50% 87%;
+  --sidebar-border: 34 26% 21%;
+  --sidebar-primary: 38 43% 60%;
+  --sidebar-primary-foreground: 30 28% 7%;
+  --sidebar-primary-border: hsl(38 43% 52%);
+  --sidebar-accent: 34 26% 16%;
+  --sidebar-accent-foreground: 40 52% 72%;
+  --sidebar-accent-border: hsl(31 23% 24%);
+  --sidebar-ring: 38 43% 60%;
+
+  /* Raw brand colours for one-off use */
+  --ev-gold: 38 43% 60%;
+  --ev-gold-light: 40 52% 72%;
+  --ev-cream: 39 50% 87%;
 
   --radius: 0.125rem;
 
-  --font-serif: 'Playfair Display', serif;
-  --font-display: 'Cormorant Garamond', serif;
-  --font-sans: 'Lato', sans-serif;
+  /* Elegant serif for headings (close match to the logo's wordmark) */
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  /* Clean sans for body and tracked caps labels */
+  --font-sans: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
+/* Dark is the only theme — keep `.dark` identical so any shadcn dark: variants agree */
+.dark { color-scheme: dark; }
+
 @layer base {
+  html {
+    background-color: hsl(var(--background));
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-sans);
@@ -60,7 +101,16 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
-    @apply tracking-tight;
+    letter-spacing: 0.01em;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.35);
+    color: hsl(var(--foreground));
+  }
+
+  input, textarea, select {
+    color-scheme: dark;
   }
 }
 
@@ -71,16 +121,16 @@
   }
 
   .shadow-gold {
-    box-shadow: 0 0 50px -10px rgba(215, 200, 178, 0.12);
+    box-shadow: 0 0 50px -12px hsl(var(--ev-gold) / 0.28);
   }
 
   .shadow-gold-sm {
-    box-shadow: 0 0 20px -6px rgba(215, 200, 178, 0.14);
+    box-shadow: 0 0 22px -8px hsl(var(--ev-gold) / 0.3);
   }
 
-  /* ── Cream text gradient — silky, luminous ── */
+  /* ── Gold text gradient — like the logo linework ── */
   .text-gold-gradient {
-    background: linear-gradient(135deg, hsl(38 30% 94%), hsl(38 42% 84%), hsl(36 35% 74%));
+    background: linear-gradient(135deg, hsl(40 52% 76%), hsl(38 43% 62%), hsl(36 38% 52%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -100,11 +150,11 @@
     content: '';
     flex: 1;
     height: 1px;
-    background: linear-gradient(to right, transparent, hsl(38 42% 84% / 0.35));
+    background: linear-gradient(to right, transparent, hsl(var(--ev-gold) / 0.55));
   }
 
   .ornament::after {
-    background: linear-gradient(to left, transparent, hsl(38 42% 84% / 0.35));
+    background: linear-gradient(to left, transparent, hsl(var(--ev-gold) / 0.55));
   }
 
   /* ── Glass card ── */
@@ -114,7 +164,7 @@
 
   /* ── Luxury section label ── */
   .label-luxury {
-    @apply text-primary tracking-[0.35em] text-xs uppercase font-light;
+    @apply text-primary tracking-[0.35em] text-xs uppercase font-normal;
     font-family: var(--font-sans);
     letter-spacing: 0.35em;
   }
@@ -122,5 +172,32 @@
   /* ── Display font class ── */
   .font-display {
     font-family: var(--font-display);
+  }
+
+  /* ── Thin gold hairline frame echoing the booth line art ── */
+  .hairline-frame {
+    position: relative;
+    border: 1px solid hsl(var(--ev-gold) / 0.45);
+  }
+  .hairline-frame::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid hsl(var(--ev-gold) / 0.18);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  /* ── Gold hairline rule ── */
+  .gold-rule {
+    height: 1px;
+    background: linear-gradient(to right, transparent, hsl(var(--ev-gold) / 0.45), transparent);
+  }
+
+  /* ── Soft espresso vignette like the logo backdrop ── */
+  .bg-espresso-glow {
+    background:
+      radial-gradient(ellipse at 50% 0%, hsl(36 24% 13%) 0%, transparent 60%),
+      hsl(var(--background));
   }
 }

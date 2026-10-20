@@ -4,7 +4,10 @@ import { ArrowRight, MapPin, TrendingUp, Users, Zap, Star, CheckCircle } from "l
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Reviews from "@/components/Reviews";
+import Locations from "@/components/Locations";
+import { useEffect } from "react";
 import boothPhoto from "@assets/Photo_Booth_Home_Page_1778001708893.png";
+import fullLogo from "@assets/ev-logo-full.png";
 
 function Ornament() {
   return (
@@ -17,12 +20,20 @@ function Ornament() {
 }
 
 export default function Home() {
+  // Support deep links like /#locations from other pages
+  useEffect(() => {
+    if (window.location.hash) {
+      const el = document.getElementById(window.location.hash.slice(1));
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 100);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background font-sans">
       <Navigation />
 
       {/* Full-width Booth Photo */}
-      <section className="bg-black pt-20">
+      <section className="bg-background pt-20">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -38,7 +49,7 @@ export default function Home() {
       </section>
 
       {/* Hero Text */}
-      <section className="py-28 md:py-36 bg-background text-center">
+      <section className="py-24 md:py-32 bg-espresso-glow text-center">
         <div className="container mx-auto px-6 md:px-8 max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -47,9 +58,15 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="space-y-7"
           >
+            <img
+              src={fullLogo}
+              alt="Experience Vending Photo Booths"
+              className="w-44 md:w-56 h-auto mx-auto mb-4"
+            />
+
             <div className="flex flex-col items-center gap-2">
               <span className="label-luxury">Experience Vending LLC</span>
-              <span className="text-foreground/30 tracking-[0.22em] text-[0.65rem] uppercase font-light">
+              <span className="text-foreground/70 tracking-[0.22em] text-[0.65rem] uppercase font-light">
                 Servicing DFW and Surrounding Areas
               </span>
             </div>
@@ -61,7 +78,7 @@ export default function Home() {
               <span className="not-italic font-semibold font-serif text-5xl md:text-6xl lg:text-7xl tracking-tight">to Your Venue</span>
             </h1>
 
-            <p className="text-base md:text-lg text-foreground/50 max-w-xl mx-auto font-light leading-relaxed tracking-wide">
+            <p className="text-base md:text-lg text-foreground/70 max-w-xl mx-auto font-light leading-relaxed tracking-wide">
               We place one of our luxury photo booths in your business — fully managed, fully serviced. Your guests love it.
             </p>
 
@@ -84,7 +101,12 @@ export default function Home() {
       </section>
 
       {/* Thin divider */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="w-full gold-rule" />
+
+      {/* Current Locations */}
+      <Locations />
+
+      <div className="w-full gold-rule" />
 
       {/* How It Works */}
       <section className="py-28 bg-card">
@@ -137,14 +159,14 @@ export default function Home() {
                   {item.icon}
                 </div>
                 <h3 className="font-serif text-lg font-semibold mb-3 tracking-wide">{item.title}</h3>
-                <p className="text-foreground/50 font-light leading-relaxed text-sm">{item.desc}</p>
+                <p className="text-foreground/70 font-light leading-relaxed text-sm">{item.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="w-full gold-rule" />
 
       {/* About / Booth Section */}
       <section className="py-28 bg-background">
@@ -161,7 +183,7 @@ export default function Home() {
               A Booth That Elevates Any Space
             </h2>
             <Ornament />
-            <p className="text-foreground/50 text-base leading-relaxed font-light max-w-xl mx-auto tracking-wide">
+            <p className="text-foreground/70 text-base leading-relaxed font-light max-w-xl mx-auto tracking-wide">
               Our Photo Booths are the luxury amenity your venue &amp; guests want. Designed with a modern aesthetic, each unit is as much a piece of decor as it is an experience.
             </p>
             <ul className="space-y-4 text-left max-w-sm mx-auto pt-2">
@@ -189,7 +211,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="w-full gold-rule" />
 
       {/* Who It's For */}
       <section className="py-28 bg-card">
@@ -224,14 +246,14 @@ export default function Home() {
                 className="bg-background border border-border/40 p-6 text-center hover:border-primary/35 hover:shadow-gold-sm transition-all duration-500 cursor-default group"
               >
                 <div className="text-2xl mb-3 opacity-80 group-hover:opacity-100 transition-opacity">{venue.icon}</div>
-                <p className="text-[0.72rem] font-light text-foreground/60 leading-snug tracking-wide uppercase">{venue.label}</p>
+                <p className="text-[0.72rem] font-light text-foreground/75 leading-snug tracking-wide uppercase">{venue.label}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="w-full gold-rule" />
 
       {/* Service Area */}
       <section className="py-20 bg-background">
@@ -241,18 +263,18 @@ export default function Home() {
             <span className="label-luxury">Service Area</span>
           </div>
           <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-5">Proudly Serving the DFW Metroplex</h2>
-          <p className="text-foreground/50 text-base max-w-xl mx-auto font-light leading-relaxed tracking-wide">
+          <p className="text-foreground/70 text-base max-w-xl mx-auto font-light leading-relaxed tracking-wide">
             Based in Fort Worth, Texas. We currently place booths throughout Dallas, Fort Worth, Arlington, Frisco, Plano, and surrounding communities.
           </p>
         </div>
       </section>
 
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="w-full gold-rule" />
 
       {/* Reviews */}
       <Reviews />
 
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="w-full gold-rule" />
 
       {/* CTA */}
       <section className="py-36 bg-card relative overflow-hidden">
@@ -263,7 +285,7 @@ export default function Home() {
             Add a New <span className="text-gold-gradient">Experience</span>
           </h2>
           <Ornament />
-          <p className="text-base text-foreground/50 mx-auto mt-6 mb-12 font-light leading-relaxed tracking-wide">
+          <p className="text-base text-foreground/70 mx-auto mt-6 mb-12 font-light leading-relaxed tracking-wide">
             Join venues across DFW that are giving their guests something to talk about. Apply today — we'll be in touch within 24 hours.
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
