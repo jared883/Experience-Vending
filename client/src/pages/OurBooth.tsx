@@ -4,10 +4,10 @@ import { Camera, Smartphone, Printer, Palette, Zap, Shield, Users, Monitor, Wifi
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import boothMini from "@assets/Lockwood_Booth_1777999897959.png";
-import boothFull from "@assets/Full_Size_Photoma_Booth_1778000466152.png";
-import strip1 from "@assets/Lockwood_Strip_1_1777999912743.png";
-import strip2 from "@assets/Lockwood_Strip_2_1777999920690.png";
+import boothMini from "@assets/Lockwood_Booth_1777999897959.webp";
+import boothFull from "@assets/Full_Size_Photoma_Booth_1778000466152.webp";
+import strip1 from "@assets/Lockwood_Strip_1_1777999912743.webp";
+import strip2 from "@assets/Lockwood_Strip_2_1777999920690.webp";
 
 function SpecBlock({ label, items }: { label: string; items: string[] }) {
   return (
@@ -61,14 +61,14 @@ export default function OurBooth() {
               className="relative"
             >
               <div className="rounded-2xl overflow-hidden shadow-gold bg-black">
-                <img src={boothMini} alt="The Photoma Mini photo booth" className="w-full h-full object-cover" />
+                <img src={boothMini} alt="Photoma Mini photo booth by Experience Vending, placed at Lockwood Distilling" width={1200} height={1152} className="w-full h-full object-cover" />
               </div>
               <div className="absolute -bottom-6 -right-6 hidden md:flex gap-3">
                 <div className="w-24 bg-card p-2 rounded-lg shadow-gold -rotate-3 border border-border/50">
-                  <img src={strip1} alt="Photo strip sample" className="w-full h-full object-cover rounded" />
+                  <img src={strip1} alt="Sample photo strip printed by the Photoma Mini photo booth" width={107} height={296} loading="lazy" decoding="async" className="w-full h-full object-cover rounded" />
                 </div>
                 <div className="w-24 bg-card p-2 rounded-lg shadow-gold rotate-2 mt-4 border border-border/50">
-                  <img src={strip2} alt="Photo strip sample" className="w-full h-full object-cover rounded" />
+                  <img src={strip2} alt="Second sample photo strip from an Experience Vending photo booth" width={108} height={293} loading="lazy" decoding="async" className="w-full h-full object-cover rounded" />
                 </div>
               </div>
             </motion.div>
@@ -192,7 +192,7 @@ export default function OurBooth() {
               className="relative lg:order-2"
             >
               <div className="rounded-2xl overflow-hidden shadow-gold bg-black">
-                <img src={boothFull} alt="The full-size Photoma Booth" className="w-full h-full object-cover" />
+                <img src={boothFull} alt="Full-size Photoma Booth enclosed photo booth from Experience Vending" width={1142} height={1378} loading="lazy" decoding="async" className="w-full h-full object-cover" />
               </div>
             </motion.div>
           </div>

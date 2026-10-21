@@ -88,7 +88,7 @@ const packages = [
 
 export default function Book() {
   const [location] = useLocation();
-  const searchParams = new URLSearchParams(window.location.search);
+  const searchParams = new URLSearchParams(typeof window !== "undefined" ? window.location.search : "");
   const preselectedPackage = searchParams.get("package") || "advanced";
 
   const { data: bookings } = useBookings();
@@ -161,7 +161,7 @@ export default function Book() {
 
       <div className="pt-32 pb-24">
         <div className="container mx-auto px-4 md:px-6">
-          <SectionHeader title="Secure Your Date" subtitle="Booking" className="mb-16" />
+          <SectionHeader as="h1" title="Secure Your Date" subtitle="Booking" className="mb-16" />
 
           {/* ── Package Overview ── */}
           <div className="max-w-6xl mx-auto mb-20">

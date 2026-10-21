@@ -5,14 +5,18 @@ interface SectionHeaderProps {
   subtitle?: string;
   align?: "left" | "center" | "right";
   className?: string;
+  /** Heading level for the title (use "h1" when it's the page's main heading). */
+  as?: "h1" | "h2";
 }
 
-export default function SectionHeader({ title, subtitle, align = "center", className = "" }: SectionHeaderProps) {
+export default function SectionHeader({ title, subtitle, align = "center", className = "", as = "h2" }: SectionHeaderProps) {
   const alignment = {
     left: "text-left items-start",
     center: "text-center items-center",
     right: "text-right items-end",
   };
+
+  const Heading = as === "h1" ? motion.h1 : motion.h2;
 
   return (
     <div className={`flex flex-col gap-4 ${alignment[align]} ${className}`}>
@@ -28,7 +32,7 @@ export default function SectionHeader({ title, subtitle, align = "center", class
         </motion.span>
       )}
 
-      <motion.h2
+      <Heading
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -36,7 +40,7 @@ export default function SectionHeader({ title, subtitle, align = "center", class
         className="font-serif text-4xl md:text-5xl font-semibold text-foreground leading-tight"
       >
         {title}
-      </motion.h2>
+      </Heading>
 
       {/* Elegant ornament */}
       <motion.div

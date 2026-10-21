@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import Reviews from "@/components/Reviews";
 import Locations from "@/components/Locations";
 import { useEffect } from "react";
-import boothPhoto from "@assets/Photo_Booth_Home_Page_1778001708893.png";
+import boothPhoto from "@assets/Photo_Booth_Home_Page_1778001708893.webp";
 import fullLogo from "@assets/ev-logo-full.png";
 
 function Ornament() {
@@ -42,7 +42,9 @@ export default function Home() {
         >
           <img
             src={boothPhoto}
-            alt="Our luxury photo booths"
+            alt="Experience Vending luxury photo booths — the Photoma Mini and full-size Photoma Booth — available for venue placement and event rentals in Fort Worth and DFW"
+            width={1536}
+            height={1024}
             className="w-full h-auto block"
           />
         </motion.div>
@@ -60,7 +62,9 @@ export default function Home() {
           >
             <img
               src={fullLogo}
-              alt="Experience Vending Photo Booths"
+              alt="Experience Vending Photo Booths logo"
+              width={560}
+              height={741}
               className="w-44 md:w-56 h-auto mx-auto mb-4"
             />
 

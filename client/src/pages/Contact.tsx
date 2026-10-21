@@ -44,7 +44,7 @@ export default function Contact() {
       
       <div className="pt-32 pb-24">
         <div className="container mx-auto px-4 md:px-6">
-          <SectionHeader title="Get in Touch" subtitle="Contact" className="mb-12" />
+          <SectionHeader as="h1" title="Get in Touch" subtitle="Contact" className="mb-12" />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto items-start">
             

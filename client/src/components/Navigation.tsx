@@ -40,7 +40,9 @@ export default function Navigation() {
         <Link href="/" className="flex items-center gap-3.5 group">
           <img
             src={logo}
-            alt="Experience Vending Logo"
+            alt="Experience Vending photo booth logo"
+            width={121}
+            height={192}
             className="h-12 w-auto opacity-95 group-hover:opacity-100 transition-opacity duration-500"
           />
           <div className="flex flex-col leading-none">

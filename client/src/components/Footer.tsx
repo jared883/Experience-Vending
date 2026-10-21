@@ -17,7 +17,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-5">
             <div className="flex items-center gap-3">
-              <img src={logo} alt="Experience Vending" className="h-14 w-auto opacity-95" />
+              <img src={logo} alt="Experience Vending photo booth logo" width={121} height={192} loading="lazy" decoding="async" className="h-14 w-auto opacity-95" />
               <div>
                 <p className="font-serif text-base font-semibold text-foreground/90 tracking-wide">Experience Vending LLC</p>
                 <p className="text-[0.55rem] tracking-[0.3em] text-primary/80 uppercase mt-1">Luxury Photo Booths</p>
@@ -78,10 +78,10 @@ export default function Footer() {
             </div>
 
             <div className="flex gap-3 pt-2">
-              <a href="#" className="p-2 border border-border/50 text-foreground/75 hover:border-primary/50 hover:text-primary transition-all duration-400">
+              <a href="https://www.instagram.com/experiencevending" target="_blank" rel="noopener noreferrer" aria-label="Experience Vending on Instagram" className="p-2 border border-border/50 text-foreground/75 hover:border-primary/50 hover:text-primary transition-all duration-400">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 border border-border/50 text-foreground/75 hover:border-primary/50 hover:text-primary transition-all duration-400">
+              <a href="#" aria-label="Experience Vending on Facebook" className="p-2 border border-border/50 text-foreground/75 hover:border-primary/50 hover:text-primary transition-all duration-400">
                 <Facebook className="w-4 h-4" />
               </a>
             </div>
