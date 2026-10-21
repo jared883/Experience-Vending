@@ -4,7 +4,7 @@ import { Camera, Smartphone, Printer, Palette, Zap, Shield, Users, Monitor, Wifi
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import boothMini from "@assets/Lockwood_Booth_1777999897959.webp";
+import boothMini from "@assets/real/booth-lockwood-garland-large.webp";
 import boothFull from "@assets/Full_Size_Photoma_Booth_1778000466152.webp";
 import strip1 from "@assets/Lockwood_Strip_1_1777999912743.webp";
 import strip2 from "@assets/Lockwood_Strip_2_1777999920690.webp";
@@ -60,9 +60,12 @@ export default function OurBooth() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="rounded-2xl overflow-hidden shadow-gold bg-black">
-                <img src={boothMini} alt="Photoma Mini photo booth by Experience Vending, placed at Lockwood Distilling" width={1200} height={1152} className="w-full h-full object-cover" />
-              </div>
+              <figure className="relative rounded-2xl overflow-hidden shadow-gold bg-black">
+                <figcaption className="absolute top-4 left-4 z-10 px-3 py-1.5 bg-background/80 backdrop-blur-sm border border-primary/40 text-primary tracking-[0.25em] text-[0.6rem] uppercase">
+                  Lockwood Distilling · Garland, TX
+                </figcaption>
+                <img src={boothMini} alt="Photoma Mini photo booth by Experience Vending at Lockwood Distilling in Garland, TX" width={1200} height={1600} className="block w-full aspect-[4/5] object-cover" />
+              </figure>
               <div className="absolute -bottom-6 -right-6 hidden md:flex gap-3">
                 <div className="w-24 bg-card p-2 rounded-lg shadow-gold -rotate-3 border border-border/50">
                   <img src={strip1} alt="Sample photo strip printed by the Photoma Mini photo booth" width={107} height={296} loading="lazy" decoding="async" className="w-full h-full object-cover rounded" />

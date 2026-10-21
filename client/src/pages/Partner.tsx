@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Loader2, Building2, TrendingUp, Shield, Wrench } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import CustomStrips from "@/components/CustomStrips";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -162,6 +163,9 @@ export default function Partner() {
           </div>
         </div>
       </section>
+
+      {/* Custom strips showcase (real venue prints) */}
+      <CustomStrips />
 
       {/* Application Form */}
       <section className="py-20 bg-card">

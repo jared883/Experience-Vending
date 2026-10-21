@@ -36,7 +36,7 @@ export default function Locations() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="hairline-frame rounded-t-[18px] bg-card/70 flex flex-col text-center transition-all duration-500 hover:shadow-gold-sm hover:border-primary/70"
+              className="group hairline-frame rounded-t-[18px] bg-card/70 flex flex-col text-center transition-all duration-500 hover:shadow-gold-sm hover:border-primary/70"
               data-testid={`location-${idx}`}
             >
               {/* Header bar — echoes the "PHOTOS" marquee on the booth */}
@@ -46,7 +46,23 @@ export default function Locations() {
                 </span>
               </div>
 
-              <div className="flex-1 flex flex-col items-center px-6 py-8 gap-4">
+              {loc.image && (
+                <figure className="px-5 pt-5">
+                  <div className="relative overflow-hidden rounded-t-[12px] border border-primary/40 p-1 bg-background/60">
+                    <img
+                      src={loc.image}
+                      alt={loc.imageAlt ?? `Experience Vending photo booth at ${loc.name} in ${loc.city}, ${loc.state}`}
+                      width={900}
+                      height={1200}
+                      loading="lazy"
+                      decoding="async"
+                      className="block w-full aspect-[3/4] object-cover rounded-t-[9px] transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                </figure>
+              )}
+
+              <div className="flex-1 flex flex-col items-center px-6 py-7 gap-4">
                 <h3 className="font-serif text-2xl font-semibold leading-tight text-foreground min-h-[4rem] flex items-center justify-center">
                   {loc.name}
                 </h3>
