@@ -13,6 +13,15 @@ const twilioClient = twilio(
   process.env.TWILIO_AUTH_TOKEN
 );
 
+function escapeHtml(value: unknown): string {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function formatPhone(number: string): string {
   const cleaned = number.replace(/\s+/g, "");
   return cleaned.startsWith("+") ? cleaned : `+${cleaned}`;
@@ -50,16 +59,16 @@ async function sendBookingNotification(booking: {
       <h1 style="color: #1a365d; border-bottom: 2px solid #1a365d; padding-bottom: 10px;">New Booking Request</h1>
       <div style="background: #fffff0; padding: 20px; border-radius: 8px; margin: 20px 0;">
         <h2 style="color: #1a365d; margin-top: 0;">Client Details</h2>
-        <p><strong>Name:</strong> ${booking.name}</p>
-        <p><strong>Email:</strong> ${booking.email}</p>
-        <p><strong>Phone:</strong> ${booking.phone}</p>
+        <p><strong>Name:</strong> ${escapeHtml(booking.name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(booking.email)}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(booking.phone)}</p>
       </div>
       <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
         <h2 style="color: #1a365d; margin-top: 0;">Event Details</h2>
-        <p><strong>Event Type:</strong> ${booking.eventType}</p>
+        <p><strong>Event Type:</strong> ${escapeHtml(booking.eventType)}</p>
         <p><strong>Event Date:</strong> ${formattedDate}</p>
-        <p><strong>Package:</strong> ${booking.packageId}</p>
-        ${booking.notes ? `<p><strong>Notes:</strong> ${booking.notes}</p>` : ''}
+        <p><strong>Package:</strong> ${escapeHtml(booking.packageId)}</p>
+        ${booking.notes ? `<p><strong>Notes:</strong> ${escapeHtml(booking.notes)}</p>` : ''}
       </div>
       <p style="color: #666; font-size: 14px;">This booking was submitted through the Experience Vending website.</p>
     </div>
@@ -93,13 +102,13 @@ async function sendInquiryNotification(inquiry: {
       <h1 style="color: #1a365d; border-bottom: 2px solid #1a365d; padding-bottom: 10px;">New Contact Inquiry</h1>
       <div style="background: #fffff0; padding: 20px; border-radius: 8px; margin: 20px 0;">
         <h2 style="color: #1a365d; margin-top: 0;">Contact Details</h2>
-        <p><strong>Name:</strong> ${inquiry.name}</p>
-        <p><strong>Email:</strong> ${inquiry.email}</p>
-        ${inquiry.phone ? `<p><strong>Phone:</strong> ${inquiry.phone}</p>` : ''}
+        <p><strong>Name:</strong> ${escapeHtml(inquiry.name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(inquiry.email)}</p>
+        ${inquiry.phone ? `<p><strong>Phone:</strong> ${escapeHtml(inquiry.phone)}</p>` : ''}
       </div>
       <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
         <h2 style="color: #1a365d; margin-top: 0;">Message</h2>
-        <p style="white-space: pre-wrap;">${inquiry.message}</p>
+        <p style="white-space: pre-wrap;">${escapeHtml(inquiry.message)}</p>
       </div>
       <p style="color: #666; font-size: 14px;">This inquiry was submitted through the Experience Vending website.</p>
     </div>
@@ -136,12 +145,13 @@ export async function registerRoutes(
       // For MVP, we'll allow double booking or let frontend handle it, 
       // but let's just save it.
       
-      const booking = await storage.createBooking(input);
+      await storage.createBooking(input);
       
       // Send email notification
       await sendBookingNotification(input);
       
-      res.status(201).json(booking);
+      // Don't echo customer details back (they'd also end up in the API request log)
+      res.status(201).json({ success: true, message: "Booking request received" });
     } catch (err) {
       if (err instanceof z.ZodError) {
         return res.status(400).json({
@@ -153,10 +163,10 @@ export async function registerRoutes(
     }
   });
 
-  // GET /api/bookings (for calendar)
-  app.get(api.bookings.list.path, async (req, res) => {
-    const bookings = await storage.getBookings();
-    res.json(bookings);
+  // GET /api/bookings (public availability calendar) — booked dates only, no PII
+  app.get(api.bookings.list.path, async (_req, res) => {
+    const booked = await storage.getBookedDates();
+    res.json(booked.map((b) => ({ eventDate: new Date(b.eventDate).toISOString() })));
   });
 
   // POST /api/inquiries
@@ -179,37 +189,6 @@ export async function registerRoutes(
       throw err;
     }
   });
-
-  // Seed Data (if empty)
-  const existingBookings = await storage.getBookings();
-  if (existingBookings.length === 0) {
-    console.log("Seeding database with initial bookings...");
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    
-    const nextWeek = new Date();
-    nextWeek.setDate(nextWeek.getDate() + 7);
-
-    await storage.createBooking({
-      name: "Alice Smith",
-      email: "alice@example.com",
-      phone: "555-0101",
-      eventType: "Wedding",
-      eventDate: tomorrow,
-      packageId: "premium",
-      notes: "Outdoor venue",
-    });
-
-    await storage.createBooking({
-      name: "Bob Jones",
-      email: "bob@example.com",
-      phone: "555-0102",
-      eventType: "Corporate",
-      eventDate: nextWeek,
-      packageId: "advanced",
-      notes: "Company anniversary",
-    });
-  }
 
   return httpServer;
 }

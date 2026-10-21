@@ -1,5 +1,6 @@
 import { z } from 'zod';
-import { insertBookingSchema, insertInquirySchema, bookings } from './schema';
+import { insertBookingSchema, insertInquirySchema } from './schema';
+export type { InsertBooking, InsertInquiry } from './schema';
 
 export const errorSchemas = {
   validation: z.object({
@@ -18,15 +19,16 @@ export const api = {
       path: '/api/bookings',
       input: insertBookingSchema,
       responses: {
-        201: z.custom<typeof bookings.$inferSelect>(),
+        // Only a confirmation is returned — never echo customer details back.
+        201: z.object({ success: z.boolean(), message: z.string() }),
         400: errorSchemas.validation,
       },
     },
-    list: { // For calendar availability
+    list: { // Public calendar availability: booked dates ONLY (no names, emails, phones or notes)
       method: 'GET' as const,
       path: '/api/bookings',
       responses: {
-        200: z.array(z.custom<typeof bookings.$inferSelect>()),
+        200: z.array(z.object({ eventDate: z.string() })),
       },
     },
   },
